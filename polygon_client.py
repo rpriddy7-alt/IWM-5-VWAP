@@ -23,10 +23,19 @@ class PolygonWebSocketClient:
         Initialize WebSocket client.
         
         Args:
-            ws_type: "stocks" or "options"
+            ws_type: "stocks", "options", "futures", "indices", "forex", or "crypto"
         """
         self.ws_type = ws_type
-        self.ws_url = Config.POLYGON_WS_STOCKS if ws_type == "stocks" else Config.POLYGON_WS_OPTIONS
+        # Map WebSocket types to URLs
+        ws_urls = {
+            "stocks": Config.POLYGON_WS_STOCKS,
+            "options": Config.POLYGON_WS_OPTIONS,
+            "futures": "wss://socket.polygon.io/futures",
+            "indices": "wss://socket.polygon.io/indices", 
+            "forex": "wss://socket.polygon.io/forex",
+            "crypto": "wss://socket.polygon.io/crypto"
+        }
+        self.ws_url = ws_urls.get(ws_type, Config.POLYGON_WS_STOCKS)
         self.api_key = Config.POLYGON_API_KEY
         
         self.ws: Optional[websocket.WebSocketApp] = None
@@ -154,6 +163,33 @@ class PolygonWebSocketClient:
                 else:
                     logger.error(f"Failed to connect after {max_retries} attempts")
                     raise
+    
+    def subscribe_to_multiple_symbols(self, symbols: List[str]):
+        """
+        Subscribe to multiple symbols efficiently.
+        Based on Polygon.io documentation recommendations.
+        """
+        if not self.authenticated:
+            logger.warning("Not authenticated, queueing subscriptions")
+            self.subscriptions.update(symbols)
+            return
+        
+        # Format symbols for Polygon.io WebSocket API
+        formatted_symbols = []
+        for symbol in symbols:
+            if self.ws_type == "stocks":
+                formatted_symbols.append(f"T.{symbol}")  # Trade data
+                formatted_symbols.append(f"A.{symbol}")  # Aggregate data
+            elif self.ws_type == "options":
+                formatted_symbols.append(f"T.O:{symbol}*")  # Options trades
+            else:
+                formatted_symbols.append(symbol)
+        
+        # Subscribe to all symbols at once
+        sub_msg = {"action": "subscribe", "params": ",".join(formatted_symbols)}
+        self.ws.send(json.dumps(sub_msg))
+        self.subscriptions.update(formatted_symbols)
+        logger.info(f"Subscribed to multiple symbols: {formatted_symbols}")
     
     def subscribe(self, channels: List[str]):
         """
