@@ -250,7 +250,18 @@ class IWM5VWAPCompleteAlertClient:
         contract_type = position_data.get('contract_type', 'call')
         current_profit = max_profit_data.get('current_profit', 0)
         max_profit = max_profit_data.get('max_profit', 0)
-        trend_strength = max_profit_data.get('trend_strength', 0)
+        trend_strength_raw = max_profit_data.get('trend_strength', 0)
+        risk_percentage = max_profit_data.get('risk_percentage', 0)
+        
+        # Convert trend strength to descriptive text
+        if trend_strength_raw >= 0.8:
+            trend_strength = "VERY STRONG"
+        elif trend_strength_raw >= 0.6:
+            trend_strength = "STRONG"
+        elif trend_strength_raw >= 0.4:
+            trend_strength = "MODERATE"
+        else:
+            trend_strength = "WEAK"
         
         # Create title
         title = f"🔔 SOFT SELL #{alert_num}"
@@ -261,7 +272,8 @@ class IWM5VWAPCompleteAlertClient:
             f"Contract: {contract_name}",
             f"Current Profit: ${current_profit:+.2f}",
             f"Max Profit Reached: ${max_profit:+.2f}",
-            f"Trend Strength: {trend_strength:.1f}",
+            f"Trend Strength: {trend_strength}",
+            f"Risk of Holding: {risk_percentage:.1f}%",
             "",
             "⚠️ Consider selling now - max profit reached",
             f"Alert #{alert_num} | {datetime.now().strftime('%H:%M ET')}"
