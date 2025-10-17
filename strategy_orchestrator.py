@@ -60,6 +60,9 @@ class IWMStrategyOrchestrator:
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
         
+        # Initialize overnight processing flag
+        self.overnight_processed_today = False
+        
     def start_strategy(self):
         """Start the complete strategy."""
         logger.info("Starting IWM Strategy Orchestrator")
@@ -70,6 +73,12 @@ class IWMStrategyOrchestrator:
             
             # Start data feeds
             self._start_data_feeds()
+            
+            # Check if we need to catch up on today's overnight analysis
+            current_time = get_et_time()
+            if self._should_analyze_overnight(current_time):
+                logger.info("Catching up on today's overnight analysis...")
+                self._process_overnight_analysis()
             
             # Main strategy loop
             self._run_strategy_loop()
@@ -139,13 +148,23 @@ class IWMStrategyOrchestrator:
     
     def _should_analyze_overnight(self, current_time: datetime) -> bool:
         """Check if we should analyze overnight data."""
-        return (current_time.hour == 3 and 
-                current_time.minute == 0 and 
-                current_time.second < 30)
+        # Check if we're at 3:00 AM ET or if we haven't processed today's data yet
+        is_three_am = (current_time.hour == 3 and 
+                       current_time.minute == 0 and 
+                       current_time.second < 30)
+        
+        # If it's past 3:00 AM and we haven't processed today's data, do it now
+        is_past_three_am = (current_time.hour >= 3 and 
+                           not hasattr(self, 'overnight_processed_today'))
+        
+        return is_three_am or is_past_three_am
     
     def _process_overnight_analysis(self):
         """Process overnight bar analysis."""
         logger.info("Processing overnight analysis")
+        
+        # Mark that we've processed today's overnight data
+        self.overnight_processed_today = True
         
         # Get overnight bar data (this would come from historical data)
         # For now, we'll simulate the analysis
