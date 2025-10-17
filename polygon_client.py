@@ -135,6 +135,12 @@ class PolygonWebSocketClient:
     
     def connect_with_retry(self, max_retries=3, delay=5):
         """Connect with retry logic to prevent rapid reconnection."""
+        # Add random delay to prevent multiple instances from connecting simultaneously
+        import random
+        initial_delay = random.uniform(1, 10)  # Random delay 1-10 seconds
+        logger.info(f"Waiting {initial_delay:.1f} seconds before connecting to prevent instance conflicts...")
+        time.sleep(initial_delay)
+        
         for attempt in range(max_retries):
             try:
                 self.connect()
