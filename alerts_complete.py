@@ -50,6 +50,11 @@ class IWM5VWAPCompleteAlertClient:
         self.robinhood_balance = 7100.0  # Your Robinhood settled cash
         self.available_robinhood_balance = 7100.0  # Current available for alerts
         
+        # Robinhood trading fees (per trade)
+        self.robinhood_fee_per_trade = 0.0  # Robinhood has no commission fees
+        self.robinhood_sec_fee = 0.00051  # SEC fee (per $1000 of sales)
+        self.robinhood_tfinra_fee = 0.000119  # FINRA fee (per share sold)
+        
         # Separate tracking for SELL MAX alerts (against strategy)
         self.sell_max_stats = {
             'total_pnl': 0.0,
@@ -304,15 +309,37 @@ class IWM5VWAPCompleteAlertClient:
             'separate_from_tradier': True
         }
     
-    def update_robinhood_balance(self, trade_amount: float):
+    def update_robinhood_balance(self, trade_amount: float, shares: int = 0, is_sell: bool = False):
         """
-        Update Robinhood balance after trade (SEPARATE FROM TRADIER).
+        Update Robinhood balance after trade with proper fee accounting (SEPARATE FROM TRADIER).
         
         Args:
             trade_amount: Amount used in trade
+            shares: Number of shares (for fee calculation)
+            is_sell: Whether this is a sell trade (affects SEC/FINRA fees)
         """
-        self.available_robinhood_balance -= trade_amount
-        logger.info(f"Robinhood balance updated: ${self.available_robinhood_balance:.2f} remaining (SEPARATE FROM TRADIER)")
+        # Calculate fees
+        total_fees = 0.0
+        
+        # SEC fee (on sales only)
+        if is_sell:
+            sec_fee = trade_amount * self.robinhood_sec_fee
+            total_fees += sec_fee
+        
+        # FINRA fee (on sales only, per share)
+        if is_sell and shares > 0:
+            finra_fee = shares * self.robinhood_tfinra_fee
+            total_fees += finra_fee
+        
+        # Update balance with fees
+        if is_sell:
+            # Sell: Add proceeds minus fees
+            self.available_robinhood_balance += (trade_amount - total_fees)
+        else:
+            # Buy: Subtract cost plus fees
+            self.available_robinhood_balance -= (trade_amount + total_fees)
+        
+        logger.info(f"Robinhood balance updated: ${self.available_robinhood_balance:.2f} remaining (Fees: ${total_fees:.4f}) (SEPARATE FROM TRADIER)")
     
     def reset_daily_robinhood_balance(self):
         """Reset Robinhood balance for new trading day (SEPARATE FROM TRADIER)."""
