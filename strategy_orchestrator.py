@@ -63,6 +63,13 @@ class IWMStrategyOrchestrator:
         # Initialize overnight processing flag
         self.overnight_processed_today = False
         
+        # Reset overnight processing flag if it's a new day
+        current_time = get_et_time()
+        if not hasattr(self, 'last_processed_date') or self.last_processed_date != current_time.date():
+            self.overnight_processed_today = False
+            self.last_processed_date = current_time.date()
+            logger.info(f"New day detected - resetting overnight analysis flag for {current_time.date()}")
+        
     def start_strategy(self):
         """Start the complete strategy."""
         logger.info("Starting IWM Strategy Orchestrator")
