@@ -169,9 +169,6 @@ class IWMStrategyOrchestrator:
         """Process overnight bar analysis."""
         logger.info("Processing overnight analysis")
         
-        # Mark that we've processed today's overnight data
-        self.overnight_processed_today = True
-        
         # Get overnight bar data (this would come from historical data)
         # For now, we'll simulate the analysis
         overnight_bar = {
@@ -195,6 +192,10 @@ class IWMStrategyOrchestrator:
             # Send bias alert
             if self.current_bias:
                 self.alerts.send_bias_alert(self.current_bias, analysis_result)
+            
+            # Mark that we've successfully processed today's overnight data
+            self.overnight_processed_today = True
+            logger.info("Overnight analysis processing completed successfully")
     
     def _check_daily_balance(self):
         """Check daily balance for silent trading (SEPARATE FROM ALERTS)."""
