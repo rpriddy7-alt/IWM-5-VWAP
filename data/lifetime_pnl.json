@@ -1,0 +1,11 @@
+{
+  "lifetime_balance": -17.00000000000002,
+  "total_trades": 7,
+  "wins": 2,
+  "losses": 5,
+  "last_trade_pnl": -9.499999999999996,
+  "last_trade_timestamp": "2025-10-06T10:41:18.400831",
+  "first_trade_timestamp": "2025-10-06T09:57:29.272719",
+  "best_trade": 12.0,
+  "worst_trade": -10.500000000000009
+}

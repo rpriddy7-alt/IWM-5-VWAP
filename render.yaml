@@ -1,0 +1,52 @@
+services:
+  - type: web
+    name: iwm-momentum-system
+    runtime: python
+    plan: starter
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      python -c "import pytz, numpy, websocket, requests; print('Dependencies verified')"
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: POLYGON_API_KEY
+        sync: false
+      - key: PUSHOVER_TOKEN
+        sync: false
+      - key: PUSHOVER_USER_KEY
+        sync: false
+      - key: LOG_LEVEL
+        value: INFO
+      - key: TIMEZONE
+        value: America/New_York
+      - key: UNDERLYING_SYMBOL
+        value: IWM
+      - key: PNL_DATA_DIR
+        value: /opt/render/project/artifacts
+      - key: RENDER
+        value: true
+      - key: PORT
+        value: 10000
+      - key: TRADIER_ENABLED
+        value: false
+      - key: TRADIER_TOKEN
+        sync: false
+      - key: TRADIER_ACCOUNT_ID
+        sync: false
+      - key: TRADIER_BASE_URL
+        value: https://api.tradier.com
+      - key: TRADIER_POSITION_SIZE
+        value: "100.0"
+      - key: TRADIER_MAX_POSITIONS
+        value: "3"
+      - key: TRADIER_STOP_LOSS_PCT
+        value: "2.0"
+      - key: TRADIER_TAKE_PROFIT_PCT
+        value: "3.0"
+    disk:
+      name: iwm-pnl-data
+      mountPath: /opt/render/project/artifacts
+      sizeGB: 1
+
+

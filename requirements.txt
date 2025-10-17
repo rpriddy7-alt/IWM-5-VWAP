@@ -1,0 +1,16 @@
+# Core dependencies
+websocket-client>=1.7.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Data handling
+numpy>=1.24.0
+
+# Time handling
+pytz>=2024.1
+
+# Additional dependencies for production
+cryptography>=41.0.0
+
+# Trading execution (optional)
+# No additional dependencies needed for Tradier API
