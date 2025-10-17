@@ -84,8 +84,8 @@ class IWMStrategyOrchestrator:
         logger.info("Initializing strategy components")
         
         # Setup WebSocket handlers
-        self.polygon_ws.add_handler('stocks.aggregate_per_second', self._handle_stock_data)
-        self.polygon_ws.add_handler('stocks.aggregate_per_minute', self._handle_minute_data)
+        self.polygon_ws.register_handler('stocks.aggregate_per_second', self._handle_stock_data)
+        self.polygon_ws.register_handler('stocks.aggregate_per_minute', self._handle_minute_data)
         
         # Start session VWAP
         self.session_vwap.start_session()
