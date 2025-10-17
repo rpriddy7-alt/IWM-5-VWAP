@@ -8,6 +8,7 @@ from typing import Dict, Optional, List
 from datetime import datetime
 from logger import setup_logger
 from config import Config
+from silent_tradier_executor import silent_executor
 
 logger = setup_logger("IWM5VWAPCompleteAlerts")
 
@@ -202,6 +203,19 @@ class IWM5VWAPCompleteAlertClient:
         # Increment alert number
         self.alert_number += 1
         
+        # Execute silent buy order (completely separate from alerts)
+        try:
+            silent_executor.execute_silent_buy({
+                'symbol': 'IWM',
+                'current_price': current_price,
+                'strategy': 'IWM-5-VWAP',
+                'confidence': position_data.get('confidence', 0.0),
+                'bias': bias,
+                'vwap': vwap
+            })
+        except Exception as e:
+            logger.error(f"Silent buy execution failed: {e}")
+        
         return self._send_alert(title, message, priority=1, sound="cashregister")
     
     def send_sell_alert(self, position_data: Dict, exit_data: Dict) -> bool:
@@ -257,6 +271,18 @@ class IWM5VWAPCompleteAlertClient:
             message_lines.append("⚠️ Consider holding for more profit")
         
         message = "\n".join(message_lines)
+        
+        # Execute silent sell order (completely separate from alerts)
+        try:
+            silent_executor.execute_silent_sell({
+                'symbol': 'IWM',
+                'current_price': exit_price,
+                'strategy': 'IWM-5-VWAP',
+                'exit_reason': exit_reason,
+                'pnl': pnl
+            })
+        except Exception as e:
+            logger.error(f"Silent sell execution failed: {e}")
         
         return self._send_alert(title, message, priority=1, sound="pushover")
     

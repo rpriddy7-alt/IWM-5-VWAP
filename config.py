@@ -22,7 +22,7 @@ class Config:
     TRADIER_TOKEN: str = os.getenv('TRADIER_TOKEN', '')
     TRADIER_ACCOUNT_ID: str = os.getenv('TRADIER_ACCOUNT_ID', '')
     TRADIER_BASE_URL: str = os.getenv('TRADIER_BASE_URL', 'https://api.tradier.com')
-    TRADIER_ENABLED: bool = os.getenv('TRADIER_ENABLED', 'false').lower() == 'true'
+    TRADIER_ENABLED: bool = os.getenv('TRADIER_ENABLED', 'OFF').upper() in ['ON', 'TRUE', '1']
     
     # Trading parameters
     UNDERLYING_SYMBOL: str = os.getenv('UNDERLYING_SYMBOL', 'IWM')

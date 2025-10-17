@@ -80,6 +80,9 @@ class IWMStrategyOrchestrator:
                 logger.info("Catching up on today's overnight analysis...")
                 self._process_overnight_analysis()
             
+            # Check daily balance for silent trading
+            self._check_daily_balance()
+            
             # Main strategy loop
             self._run_strategy_loop()
             
@@ -189,6 +192,15 @@ class IWMStrategyOrchestrator:
             # Send bias alert
             if self.current_bias:
                 self.alerts.send_bias_alert(self.current_bias, analysis_result)
+    
+    def _check_daily_balance(self):
+        """Check daily balance for silent trading."""
+        try:
+            from silent_tradier_executor import silent_executor
+            silent_executor._check_daily_balance()
+            logger.info("Daily balance check completed")
+        except Exception as e:
+            logger.error(f"Daily balance check failed: {e}")
     
     def _is_in_entry_window(self, current_time: datetime) -> bool:
         """Check if we're in an entry window."""
