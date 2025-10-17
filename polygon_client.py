@@ -190,24 +190,23 @@ class PolygonWebSocketClient:
             logger.info(f"Already connected and authenticated [{self.ws_type}]")
             return
         
-        # Add longer random delay to prevent multiple instances from connecting simultaneously
+        # Add very long random delay to prevent multiple instances from connecting simultaneously
         import random
         import os
-        initial_delay = random.uniform(10, 30)  # Longer delay 10-30 seconds
+        import time
+        
+        # Get instance ID to determine if this is the "primary" instance
+        instance_id = os.getenv('RENDER_INSTANCE_ID', '')
+        logger.info(f"Instance ID: {instance_id}")
+        
+        # Only allow specific instance to connect (the one that starts first)
+        if instance_id and not instance_id.endswith('bbg6v'):
+            logger.info(f"Skipping connection for instance {instance_id} - only primary instance should connect")
+            return
+        
+        initial_delay = random.uniform(30, 60)  # Very long delay 30-60 seconds
         logger.info(f"Waiting {initial_delay:.1f} seconds before connecting...")
         time.sleep(initial_delay)
-        
-        # Check if another instance is already connected by trying a test connection first
-        try:
-            test_ws = websocket.WebSocketApp(
-                self.ws_url,
-                on_open=lambda ws: ws.close(),
-                on_error=lambda ws, error: None,
-                on_close=lambda ws, close_status_code, close_msg: None
-            )
-            test_ws.run_forever(timeout=5)
-        except:
-            pass  # Ignore test connection errors
         
         # Use global lock to prevent multiple instances from connecting
         with _connection_lock:
@@ -223,8 +222,8 @@ class PolygonWebSocketClient:
                 except Exception as e:
                     logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
                     if "max_connections" in str(e):
-                        logger.error("Connection limit exceeded - waiting 3 minutes before retry")
-                        time.sleep(180)  # Wait 3 minutes for connection limit
+                        logger.error("Connection limit exceeded - waiting 5 minutes before retry")
+                        time.sleep(300)  # Wait 5 minutes for connection limit
                     if attempt < max_retries - 1:
                         wait_time = delay * (2 ** attempt)  # Exponential backoff
                         logger.info(f"Retrying in {wait_time} seconds...")
