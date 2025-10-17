@@ -207,6 +207,7 @@ class IWM5VWAPCompleteAlertClient:
     def send_sell_alert(self, position_data: Dict, exit_data: Dict) -> bool:
         """
         Send SELL alert with position details and exit reason.
+        May include SELL MAX info if trend is still favorable.
         """
         alert_num = exit_data.get('alert_number', self.alert_number - 1)
         logger.info(f"💰 SELL ALERT #{alert_num}")
@@ -227,9 +228,11 @@ class IWM5VWAPCompleteAlertClient:
         lifetime_losses = exit_data.get('lifetime_losses', 0)
         lifetime_win_rate = (lifetime_wins / (lifetime_wins + lifetime_losses) * 100) if (lifetime_wins + lifetime_losses) > 0 else 0
         
-        # Check if trend still favorable
+        # Check if SELL MAX info should be included
         trend_favorable = exit_data.get('trend_favorable', False)
         max_profit_reached = exit_data.get('max_profit_reached', False)
+        trend_strength = exit_data.get('trend_strength', 'WEAK')
+        risk_percentage = exit_data.get('risk_percentage', 0)
         
         # Create title
         title = f"**SELL**"
@@ -246,9 +249,12 @@ class IWM5VWAPCompleteAlertClient:
             f"Alert #{alert_num} | {datetime.now().strftime('%H:%M ET')}"
         ]
         
-        # Add trend analysis if applicable
+        # Add SELL MAX info ONLY if trend is still favorable and max profit reached
         if trend_favorable and max_profit_reached:
-            message_lines.insert(-2, "⚠️ TREND STILL FAVORABLE - Consider holding for more profit")
+            message_lines.append("")
+            message_lines.append("🔔 SELL MAX INFO:")
+            message_lines.append(f"Trend: {trend_strength} | Risk: {risk_percentage:.1f}%")
+            message_lines.append("⚠️ Consider holding for more profit")
         
         message = "\n".join(message_lines)
         
@@ -256,58 +262,37 @@ class IWM5VWAPCompleteAlertClient:
     
     def send_sell_max_alert(self, position_data: Dict, max_profit_data: Dict) -> bool:
         """
-        Send SELL MAX alert when max profit is reached but trend is still favorable.
-        This is a personal risk alert that goes against the bot's strategy.
+        Send SELL MAX alert - RARE alert only when strong movement detected.
+        Simple and clear - time to sell if you didn't sell earlier.
         """
         alert_num = max_profit_data.get('alert_number', self.alert_number - 1)
-        logger.info(f"💰 SELL MAX ALERT #{alert_num}")
+        logger.info(f"💰 SELL MAX ALERT #{alert_num} - RARE ALERT")
         
         # Extract data
         contract_name = position_data.get('contract_name', 'N/A')
         contract_type = position_data.get('contract_type', 'call')
         current_profit = max_profit_data.get('current_profit', 0)
-        max_profit = max_profit_data.get('max_profit', 0)
-        trend_strength_raw = max_profit_data.get('trend_strength', 0)
-        risk_percentage = max_profit_data.get('risk_percentage', 0)
-        
-        # Convert trend strength to descriptive text
-        if trend_strength_raw >= 0.8:
-            trend_strength = "VERY STRONG"
-        elif trend_strength_raw >= 0.6:
-            trend_strength = "STRONG"
-        elif trend_strength_raw >= 0.4:
-            trend_strength = "MODERATE"
-        else:
-            trend_strength = "WEAK"
-        
-        # Get SELL MAX stats (separate from strategy stats)
-        sell_max_pnl = self.sell_max_stats['total_pnl']
-        sell_max_trades = self.sell_max_stats['total_trades']
-        sell_max_wins = self.sell_max_stats['wins']
-        sell_max_losses = self.sell_max_stats['losses']
-        sell_max_win_rate = (sell_max_wins / sell_max_trades * 100) if sell_max_trades > 0 else 0
+        trend_strength = max_profit_data.get('trend_strength', 'WEAK')
         
         # Create title
         title = f"💰 SELL MAX #{alert_num}"
         
-        # Create message
+        # Create simple, clear message
         message_lines = [
             f"**IWM-5-VWAP {contract_type.upper()}**",
             f"Contract: {contract_name}",
             f"Current Profit: ${current_profit:+.2f}",
-            f"Max Profit Reached: ${max_profit:+.2f}",
-            f"Trend Strength: {trend_strength}",
-            f"Risk of Holding: {risk_percentage:.1f}%",
+            f"Trend: {trend_strength}",
             "",
-            f"📊 SELL MAX TRACKING: ${sell_max_pnl:+.2f} | {sell_max_wins}W/{sell_max_losses}L ({sell_max_win_rate:.1f}%)",
+            "🚨 DEFINITELY TIME TO SELL NOW",
+            "⚠️ Strong movement detected - sell immediately",
             "",
-            "⚠️ PERSONAL RISK ALERT - Against bot strategy",
             f"Alert #{alert_num} | {datetime.now().strftime('%H:%M ET')}"
         ]
         
         message = "\n".join(message_lines)
         
-        return self._send_alert(title, message, priority=0, sound="pushover")
+        return self._send_alert(title, message, priority=1, sound="cashregister")
     
     def _send_alert(self, title: str, message: str, priority: int = 0, sound: str = "pushover") -> bool:
         """
