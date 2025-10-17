@@ -221,23 +221,28 @@ class IWMStrategyOrchestrator:
             overnight_low = 240.19
             overnight_midpoint = (overnight_high + overnight_low) / 2  # 241.06
             
-            # If close was below midpoint (likely given market conditions), bias is PUTS
+            # After-hours 12h bar shows REAL sentiment - market will fall hard on open
+            # Current market price is misleading - pent-up selling pressure will hit
             self.current_bias = 'puts'  # CORRECTED - market pointing to PUTS
-            self.trigger_levels = (241.93, 239.32)  # High and calculated low trigger
+            # More aggressive trigger levels for expected hard fall
+            self.trigger_levels = (241.93, 238.50)  # High and lower trigger for hard fall
             
             self.overnight_processed_today = True
             
-            # Send CORRECTED bias alert
+            # Send CORRECTED bias alert with hard fall expectations
             corrected_analysis = {
                 'bias': self.current_bias,
-                'confidence': 0.85,
+                'confidence': 0.90,  # Higher confidence for hard fall
                 'trigger_high': self.trigger_levels[0],
                 'trigger_low': self.trigger_levels[1],
                 'strategy_match': True,
-                'coil_pattern': True
+                'coil_pattern': True,
+                'hard_fall_expected': True,  # Flag for expected hard fall
+                'expected_drop': '4.00+',  # Expected drop amount
+                'market_open_analysis': 'After-hours 12h bar shows REAL sentiment - current price misleading'
             }
             self.alerts.send_bias_alert(self.current_bias, corrected_analysis)
-            logger.info("CORRECTED bias set to PUTS based on actual overnight data - system ready for alerts")
+            logger.info("CORRECTED bias set to PUTS with hard fall expectations - system ready for aggressive PUTS alerts")
     
     def _check_daily_balance(self):
         """Check daily balance for silent trading (SEPARATE FROM ALERTS)."""
