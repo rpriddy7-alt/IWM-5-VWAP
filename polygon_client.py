@@ -190,45 +190,45 @@ class PolygonWebSocketClient:
             logger.info(f"Already connected and authenticated [{self.ws_type}]")
             return
         
-        # Add random delay to prevent multiple instances from connecting simultaneously
+        # Add very long random delay to prevent multiple instances from connecting simultaneously
         import random
-        initial_delay = random.uniform(15, 45)  # Even longer delay 15-45 seconds
+        initial_delay = random.uniform(60, 120)  # Very long delay 60-120 seconds
         logger.info(f"Waiting {initial_delay:.1f} seconds before connecting to prevent instance conflicts...")
         time.sleep(initial_delay)
         
-        # Try to acquire file-based lock
-        lock_fd = _acquire_file_lock()
-        if not lock_fd:
-            logger.warning("Another instance is connecting - skipping connection attempt")
+        # Check if we should skip connection (only one instance should connect)
+        import os
+        instance_id = os.getenv('RENDER_INSTANCE_ID', 'unknown')
+        logger.info(f"Instance ID: {instance_id}")
+        
+        # Only allow connection if this is the first instance or if no other instance is connected
+        if instance_id != 'unknown' and not instance_id.endswith('gdbvw'):
+            logger.warning(f"Skipping connection for instance {instance_id} - only primary instance should connect")
             return
         
-        try:
-            # Use global lock to prevent multiple instances from connecting
-            with _connection_lock:
-                # Double-check connection status
-                if self.connected and self.authenticated:
-                    logger.info(f"Already connected and authenticated [{self.ws_type}]")
+        # Use global lock to prevent multiple instances from connecting
+        with _connection_lock:
+            # Double-check connection status
+            if self.connected and self.authenticated:
+                logger.info(f"Already connected and authenticated [{self.ws_type}]")
+                return
+            
+            for attempt in range(max_retries):
+                try:
+                    self.connect()
                     return
-                
-                for attempt in range(max_retries):
-                    try:
-                        self.connect()
-                        return
-                    except Exception as e:
-                        logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
-                        if "max_connections" in str(e):
-                            logger.error("Connection limit exceeded - waiting 3 minutes before retry")
-                            time.sleep(180)  # Wait 3 minutes for connection limit
-                        if attempt < max_retries - 1:
-                            wait_time = delay * (2 ** attempt)  # Exponential backoff
-                            logger.info(f"Retrying in {wait_time} seconds...")
-                            time.sleep(wait_time)
-                        else:
-                            logger.error(f"Failed to connect after {max_retries} attempts")
-                            raise
-        finally:
-            # Release file lock
-            _release_file_lock(lock_fd)
+                except Exception as e:
+                    logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
+                    if "max_connections" in str(e):
+                        logger.error("Connection limit exceeded - waiting 5 minutes before retry")
+                        time.sleep(300)  # Wait 5 minutes for connection limit
+                    if attempt < max_retries - 1:
+                        wait_time = delay * (2 ** attempt)  # Exponential backoff
+                        logger.info(f"Retrying in {wait_time} seconds...")
+                        time.sleep(wait_time)
+                    else:
+                        logger.error(f"Failed to connect after {max_retries} attempts")
+                        raise
     
     def subscribe_to_multiple_symbols(self, symbols: List[str]):
         """
