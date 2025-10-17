@@ -71,6 +71,41 @@ class IWM5VWAPCompleteAlertClient:
             'puts_losses': 0
         }
     
+    def send_bias_alert(self, bias: str, analysis_data: Dict) -> bool:
+        """
+        Send bias alert when overnight analysis determines market direction.
+        """
+        logger.info(f"🎯 BIAS ALERT: {bias.upper()}")
+        
+        # Extract analysis data
+        confidence = analysis_data.get('confidence', 0.0)
+        trigger_high = analysis_data.get('trigger_high', 0.0)
+        trigger_low = analysis_data.get('trigger_low', 0.0)
+        strategy_match = analysis_data.get('strategy_match', False)
+        coil_pattern = analysis_data.get('coil_pattern', False)
+        
+        # Create title
+        title = f"🎯 IWM-5-VWAP {bias.upper()} BIAS"
+        
+        # Create message
+        message_lines = [
+            f"**MARKET BIAS: {bias.upper()}**",
+            "",
+            f"📊 Confidence: {confidence:.1f}%",
+            f"🎯 Trigger High: ${trigger_high:.2f}",
+            f"🎯 Trigger Low: ${trigger_low:.2f}",
+            f"📈 Strategy Match: {'✓' if strategy_match else '✗'}",
+            f"🔄 Coil Pattern: {'✓' if coil_pattern else '✗'}",
+            "",
+            f"⏰ Analysis Time: {datetime.now().strftime('%H:%M ET')}",
+            "",
+            "🚨 System is now monitoring for entry signals!"
+        ]
+        
+        message = "\n".join(message_lines)
+        
+        return self._send_alert(title, message, priority=1, sound="cashregister")
+    
     def send_overnight_analysis_alert(self, analysis_data: Dict) -> bool:
         """
         Send overnight analysis alert at 3:00 AM ET after 12h candle completion.

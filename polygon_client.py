@@ -199,8 +199,17 @@ class PolygonWebSocketClient:
         instance_id = os.getenv('RENDER_INSTANCE_ID', '')
         logger.info(f"Instance ID: {instance_id}")
         
+        # Check if we should connect (only one instance should connect)
+        import os
+        instance_id = os.getenv('RENDER_INSTANCE_ID', '')
+        
+        # Only connect if this is the primary instance or if no instance ID
+        if instance_id and not instance_id.endswith('dbmjg'):
+            logger.info(f"Skipping WebSocket connection for instance {instance_id}")
+            return
+        
         # Reduced delay to allow faster startup
-        initial_delay = random.uniform(5, 15)  # Reduced delay 5-15 seconds
+        initial_delay = random.uniform(2, 5)  # Further reduced delay 2-5 seconds
         logger.info(f"Waiting {initial_delay:.1f} seconds before connecting...")
         time.sleep(initial_delay)
         
