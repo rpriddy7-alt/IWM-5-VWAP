@@ -63,6 +63,16 @@ def main():
     """Main execution function."""
     logger.info("Starting IWM Strategy System")
     
+    # Add instance check to prevent multiple instances
+    import os
+    import time
+    import random
+    
+    # Add random startup delay to prevent multiple instances from starting simultaneously
+    startup_delay = random.uniform(5, 15)
+    logger.info(f"Instance startup delay: {startup_delay:.1f} seconds")
+    time.sleep(startup_delay)
+    
     # Start health check server
     health_server = start_health_server()
     

@@ -100,8 +100,11 @@ class PolygonWebSocketClient:
         
         # Handle connection limit errors with delay
         if "max_connections" in str(error):
-            logger.error("Connection limit exceeded - waiting before retry")
-            time.sleep(60)  # Wait 1 minute before retry
+            logger.error("Connection limit exceeded - waiting 3 minutes before retry")
+            time.sleep(180)  # Wait 3 minutes before retry
+        elif "fin=1 opcode=8" in str(error):
+            logger.error("WebSocket connection closed by server - likely connection limit")
+            time.sleep(120)  # Wait 2 minutes before retry
     
     def on_close(self, ws, close_status_code, close_msg):
         """Handle WebSocket close."""
@@ -156,7 +159,7 @@ class PolygonWebSocketClient:
             
             # Add random delay to prevent multiple instances from connecting simultaneously
             import random
-            initial_delay = random.uniform(5, 15)  # Longer delay 5-15 seconds
+            initial_delay = random.uniform(10, 30)  # Much longer delay 10-30 seconds
             logger.info(f"Waiting {initial_delay:.1f} seconds before connecting to prevent instance conflicts...")
             time.sleep(initial_delay)
             
@@ -166,6 +169,9 @@ class PolygonWebSocketClient:
                     return
                 except Exception as e:
                     logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
+                    if "max_connections" in str(e):
+                        logger.error("Connection limit exceeded - waiting 2 minutes before retry")
+                        time.sleep(120)  # Wait 2 minutes for connection limit
                     if attempt < max_retries - 1:
                         wait_time = delay * (2 ** attempt)  # Exponential backoff
                         logger.info(f"Retrying in {wait_time} seconds...")

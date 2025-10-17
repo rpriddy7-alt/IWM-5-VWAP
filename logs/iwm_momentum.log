@@ -23498,3 +23498,7 @@ IWM 0DTE Momentum System Configuration:
 2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:110 | PUSHOVER_USER_KEY: SET
 2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:111 | TRADIER_ENABLED: False
 2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:112 | TRADIER_TOKEN: MISSING
+2025-10-17 03:23:30 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 03:23:30 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 03:23:34 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 03:23:34 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
