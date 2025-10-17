@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-IWM Strategy System - Complete Implementation
-Implements the complete IWM strategy with overnight analysis, bias logic, and VWAP control.
+Miyagi Strategy System - Complete Implementation
+Implements the complete Miyagi strategy with overnight analysis, bias logic, and VWAP control.
 """
 import signal
 import sys
@@ -14,7 +14,7 @@ from datetime import datetime
 
 from config import Config
 from logger import setup_logger, log_trade_event
-from strategy_orchestrator import IWMStrategyOrchestrator
+from multi_strategy_orchestrator import MultiStrategyOrchestrator
 from utils import (
     is_market_hours, 
     can_enter_trade, 
@@ -23,7 +23,7 @@ from utils import (
     get_et_time
 )
 
-logger = setup_logger("IWMStrategyMain")
+logger = setup_logger("MiyagiStrategyMain")
 
 
 class HealthCheckHandler(BaseHTTPRequestHandler):
@@ -35,7 +35,7 @@ class HealthCheckHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.send_header('Cache-Control', 'no-cache')
             self.end_headers()
-            self.wfile.write(b'IWM Strategy System Running')
+            self.wfile.write(b'Miyagi Strategy System Running')
         else:
             self.send_response(404)
             self.end_headers()
@@ -64,7 +64,7 @@ def start_health_server():
 
 def main():
     """Main execution function."""
-    logger.info("Starting IWM Strategy System")
+    logger.info("Starting Miyagi Strategy System")
     
     # Add instance check to prevent multiple instances
     import os
@@ -81,8 +81,8 @@ def main():
     # Start health check server
     health_server = start_health_server()
     
-    # Initialize strategy orchestrator
-    strategy = IWMStrategyOrchestrator()
+    # Initialize multi-strategy orchestrator
+    strategy = MultiStrategyOrchestrator()
     
     # Start the complete strategy in a separate thread
     strategy_thread = threading.Thread(target=strategy.start_strategy, daemon=True)

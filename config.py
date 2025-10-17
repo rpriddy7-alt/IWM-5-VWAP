@@ -1,5 +1,5 @@
 """
-Configuration management for IWM 0DTE momentum system.
+Configuration management for Miyagi 0DTE momentum system.
 Loads settings from environment variables with sensible defaults.
 """
 import os
@@ -27,6 +27,38 @@ class Config:
     # Trading parameters
     UNDERLYING_SYMBOL: str = os.getenv('UNDERLYING_SYMBOL', 'IWM')
     TIMEZONE: str = os.getenv('TIMEZONE', 'America/New_York')
+    
+    # Multi-symbol support for Overnight Bias Strategy
+    # Tier 1 (Best structure, clean flow, daily liquidity)
+    OVERNIGHT_BIAS_SYMBOLS_TIER1: list = os.getenv('OVERNIGHT_BIAS_SYMBOLS_TIER1', 'SPY,IWM,QQQ,AAPL,MSFT').split(',')
+    
+    # Tier 2 (Works well but needs tighter risk control)
+    OVERNIGHT_BIAS_SYMBOLS_TIER2: list = os.getenv('OVERNIGHT_BIAS_SYMBOLS_TIER2', 'META,AMD,NVDA,TSLA,AMZN').split(',')
+    
+    # Tier 3 (Only in strong trend environments)
+    OVERNIGHT_BIAS_SYMBOLS_TIER3: list = os.getenv('OVERNIGHT_BIAS_SYMBOLS_TIER3', 'GOOGL,NFLX,BA,INTC,COIN,XLF,XLK,XLE').split(',')
+    
+    # Default active symbols (Tier 1 only for production)
+    OVERNIGHT_BIAS_SYMBOLS: list = os.getenv('OVERNIGHT_BIAS_SYMBOLS', 'SPY,IWM,QQQ').split(',')
+    VWAP_STRATEGY_SYMBOLS: list = os.getenv('VWAP_STRATEGY_SYMBOLS', 'SPY,IWM').split(',')
+    
+    # Symbol tier configuration
+    SYMBOL_TIERS = {
+        'tier1': OVERNIGHT_BIAS_SYMBOLS_TIER1,
+        'tier2': OVERNIGHT_BIAS_SYMBOLS_TIER2,
+        'tier3': OVERNIGHT_BIAS_SYMBOLS_TIER3
+    }
+    
+    # Risk control per tier
+    TIER_RISK_CONTROLS = {
+        'tier1': {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45},
+        'tier2': {'max_positions': 1, 'position_size_multiplier': 0.7, 'time_stop_minutes': 30},
+        'tier3': {'max_positions': 1, 'position_size_multiplier': 0.5, 'time_stop_minutes': 20}
+    }
+    
+    # Strategy toggles
+    ENABLE_VWAP_STRATEGY: bool = os.getenv('ENABLE_VWAP_STRATEGY', 'true').lower() in ['true', '1', 'yes']
+    ENABLE_OVERNIGHT_BIAS_STRATEGY: bool = os.getenv('ENABLE_OVERNIGHT_BIAS_STRATEGY', 'true').lower() in ['true', '1', 'yes']
     
     # Tradier Trading Settings
     TRADIER_POSITION_SIZE: float = float(os.getenv('TRADIER_POSITION_SIZE', '100.0'))  # Dollar amount per trade
@@ -89,7 +121,7 @@ class Config:
     
     # Logging
     LOG_LEVEL: str = os.getenv('LOG_LEVEL', 'INFO')
-    LOG_FILE: str = os.getenv('LOG_FILE', 'iwm_momentum.log')
+    LOG_FILE: str = os.getenv('LOG_FILE', 'miyagi_momentum.log')
     
     @classmethod
     def validate(cls) -> Dict[str, Any]:
@@ -134,7 +166,7 @@ class Config:
     def get_config_summary(cls) -> str:
         """Return a summary of current configuration (safe for logging)."""
         return f"""
-IWM 0DTE Momentum System Configuration:
+Miyagi 0DTE Momentum System Configuration:
   Symbol: {cls.UNDERLYING_SYMBOL}
   Delta Range: {cls.DELTA_MIN} - {cls.DELTA_MAX}
   Max Contracts Tracked: {cls.MAX_CONTRACTS_TO_TRACK}

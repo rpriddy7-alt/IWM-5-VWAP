@@ -1,0 +1,897 @@
+2025-10-17 09:51:21 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:51:21 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:184 | Starting Miyagi Multi-Symbol Multi-Strategy Tests
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:185 | ============================================================
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:199 | 
+Running Configuration...
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_configuration:18 | Testing Multi-Symbol Configuration...
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_configuration:21 | Overnight Bias Symbols: ['IWM', 'SPY', 'QQQ']
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_configuration:22 | VWAP Strategy Symbols: ['IWM']
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_configuration:23 | Enable VWAP Strategy: True
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_configuration:24 | Enable Overnight Bias Strategy: True
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_configuration:35 | ✓ Multi-symbol configuration valid
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:204 | ✓ Configuration PASSED
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:199 | 
+Running Orchestrator Initialization...
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_orchestrator_initialization:41 | Testing Multi-Strategy Orchestrator Initialization...
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_orchestrator_initialization:48 | Overnight Bias Instances: ['IWM', 'SPY', 'QQQ']
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_orchestrator_initialization:49 | VWAP Instances: ['IWM']
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_orchestrator_initialization:52 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_orchestrator_initialization:56 | Strategy Status: {'strategy_active': False, 'active_strategies': {'vwap': True, 'overnight_bias': True}, 'overnight_bias_symbols': ['IWM', 'SPY', 'QQQ'], 'vwap_strategy_symbols': ['IWM'], 'current_bias': None, 'trigger_levels': (0.0, 0.0), 'entry_window_active': False, 'active_positions': 0, 'daily_pnl': 0.0, 'position_summary': {'total_positions': 0, 'available_cash': 4666.666666666666, 'total_risk': 0, 'daily_pnl': 0.0, 'max_daily_loss': 700.0, 'positions': []}, 'invalidation_status': {'consecutive_closes_inside': 0, 'consecutive_closes_across_vwap': 0, 'current_vwap': 0.0, 'vwap_side': None, 'active_positions': 0, 'max_consecutive_closes': 2}, 'overnight_bias_statuses': {'IWM': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'SPY': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'QQQ': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}}}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_orchestrator_initialization:58 | ✓ Multi-strategy orchestrator initialized successfully
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:204 | ✓ Orchestrator Initialization PASSED
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:199 | 
+Running Symbol Data Handling...
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_symbol_data_handling:68 | Testing Symbol-Specific Data Handling...
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | IWM Data: {'timestamp': 1760712681.567765, 'price': 245.5, 'volume': 1000, 'symbol': 'IWM'}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | SPY Data: {'timestamp': 1760712681.5677881, 'price': 443.0, 'volume': 1000, 'symbol': 'SPY'}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | QQQ Data: {'timestamp': 1760712681.567809, 'price': 380.0, 'volume': 1000, 'symbol': 'QQQ'}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_symbol_data_handling:84 | ✓ Symbol-specific data handling working
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:204 | ✓ Symbol Data Handling PASSED
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:199 | 
+Running Strategy Instances...
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_strategy_instances:94 | Testing Strategy Instances...
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_strategy_instances:107 | IWM Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_strategy_instances:107 | SPY Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_strategy_instances:107 | QQQ Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_strategy_instances:116 | IWM VWAP Components: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_strategy_instances:118 | ✓ Strategy instances working for all symbols
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:204 | ✓ Strategy Instances PASSED
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:199 | 
+Running Overnight Analysis Simulation...
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:128 | Testing Overnight Analysis Simulation...
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:378 | Processing overnight analysis for IWM
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for SPY
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:378 | Processing overnight analysis for SPY
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for QQQ
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:378 | Processing overnight analysis for QQQ
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:140 | ✓ Overnight analysis simulation completed
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:204 | ✓ Overnight Analysis Simulation PASSED
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:199 | 
+Running Position Tracking...
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_position_tracking:150 | Testing Position Tracking...
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:51:21 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 1: {'strategy': 'overnight_bias', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 2: {'strategy': 'overnight_bias', 'symbol': 'SPY', 'bias': 'puts'}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 3: {'strategy': 'vwap', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_position_tracking:168 | Total positions: 3
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_position_tracking:172 | Active positions in status: 3
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | test_position_tracking:174 | ✓ Position tracking working across symbols
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:204 | ✓ Position Tracking PASSED
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:212 | 
+============================================================
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:213 | MIYAGI MULTI-SYMBOL TEST SUMMARY
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:214 | ============================================================
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:221 | Configuration: PASS
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:221 | Orchestrator Initialization: PASS
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:221 | Symbol Data Handling: PASS
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:221 | Strategy Instances: PASS
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:221 | Overnight Analysis Simulation: PASS
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:221 | Position Tracking: PASS
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:223 | 
+Overall: 6/6 tests passed
+2025-10-17 09:51:21 | INFO     | TestMultiSymbol | main:226 | 🎉 All Miyagi multi-symbol tests passed! System is ready for multi-symbol trading.
+2025-10-17 09:54:28 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:54:28 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:184 | Starting Miyagi Multi-Symbol Multi-Strategy Tests
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:185 | ============================================================
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:199 | 
+Running Configuration...
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_configuration:18 | Testing Multi-Symbol Configuration...
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_configuration:21 | Overnight Bias Symbols: ['SPY', 'IWM', 'QQQ']
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_configuration:22 | VWAP Strategy Symbols: ['SPY', 'IWM']
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_configuration:23 | Enable VWAP Strategy: True
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_configuration:24 | Enable Overnight Bias Strategy: True
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_configuration:35 | ✓ Multi-symbol configuration valid
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:204 | ✓ Configuration PASSED
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:199 | 
+Running Orchestrator Initialization...
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_orchestrator_initialization:41 | Testing Multi-Strategy Orchestrator Initialization...
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_orchestrator_initialization:48 | Overnight Bias Instances: ['SPY', 'IWM', 'QQQ']
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_orchestrator_initialization:49 | VWAP Instances: ['SPY', 'IWM']
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_orchestrator_initialization:52 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_orchestrator_initialization:56 | Strategy Status: {'strategy_active': False, 'active_strategies': {'vwap': True, 'overnight_bias': True}, 'overnight_bias_symbols': ['SPY', 'IWM', 'QQQ'], 'vwap_strategy_symbols': ['SPY', 'IWM'], 'current_bias': None, 'trigger_levels': (0.0, 0.0), 'entry_window_active': False, 'active_positions': 0, 'daily_pnl': 0.0, 'position_summary': {'total_positions': 0, 'available_cash': 4666.666666666666, 'total_risk': 0, 'daily_pnl': 0.0, 'max_daily_loss': 700.0, 'positions': []}, 'invalidation_status': {'consecutive_closes_inside': 0, 'consecutive_closes_across_vwap': 0, 'current_vwap': 0.0, 'vwap_side': None, 'active_positions': 0, 'max_consecutive_closes': 2}, 'overnight_bias_statuses': {'SPY': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'IWM': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'QQQ': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}}}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_orchestrator_initialization:58 | ✓ Multi-strategy orchestrator initialized successfully
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:204 | ✓ Orchestrator Initialization PASSED
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:199 | 
+Running Symbol Data Handling...
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_symbol_data_handling:68 | Testing Symbol-Specific Data Handling...
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | IWM Data: {'timestamp': 1760712868.369303, 'price': 245.5, 'volume': 1000, 'symbol': 'IWM'}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | SPY Data: {'timestamp': 1760712868.3693252, 'price': 443.0, 'volume': 1000, 'symbol': 'SPY'}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | QQQ Data: {'timestamp': 1760712868.3693461, 'price': 380.0, 'volume': 1000, 'symbol': 'QQQ'}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_symbol_data_handling:84 | ✓ Symbol-specific data handling working
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:204 | ✓ Symbol Data Handling PASSED
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:199 | 
+Running Strategy Instances...
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_strategy_instances:94 | Testing Strategy Instances...
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_strategy_instances:107 | SPY Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_strategy_instances:107 | IWM Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_strategy_instances:107 | QQQ Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_strategy_instances:116 | SPY VWAP Components: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_strategy_instances:116 | IWM VWAP Components: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_strategy_instances:118 | ✓ Strategy instances working for all symbols
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:204 | ✓ Strategy Instances PASSED
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:199 | 
+Running Overnight Analysis Simulation...
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:128 | Testing Overnight Analysis Simulation...
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for SPY
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:404 | Processing overnight analysis for SPY
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for IWM
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:404 | Processing overnight analysis for IWM
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for QQQ
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:404 | Processing overnight analysis for QQQ
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:140 | ✓ Overnight analysis simulation completed
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:204 | ✓ Overnight Analysis Simulation PASSED
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:199 | 
+Running Position Tracking...
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_position_tracking:150 | Testing Position Tracking...
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:54:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:54:28 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 1: {'strategy': 'overnight_bias', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 2: {'strategy': 'overnight_bias', 'symbol': 'SPY', 'bias': 'puts'}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 3: {'strategy': 'vwap', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_position_tracking:168 | Total positions: 3
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_position_tracking:172 | Active positions in status: 3
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | test_position_tracking:174 | ✓ Position tracking working across symbols
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:204 | ✓ Position Tracking PASSED
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:212 | 
+============================================================
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:213 | MIYAGI MULTI-SYMBOL TEST SUMMARY
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:214 | ============================================================
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:221 | Configuration: PASS
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:221 | Orchestrator Initialization: PASS
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:221 | Symbol Data Handling: PASS
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:221 | Strategy Instances: PASS
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:221 | Overnight Analysis Simulation: PASS
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:221 | Position Tracking: PASS
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:223 | 
+Overall: 6/6 tests passed
+2025-10-17 09:54:28 | INFO     | TestMultiSymbol | main:226 | 🎉 All Miyagi multi-symbol tests passed! System is ready for multi-symbol trading.
+2025-10-17 09:56:59 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:56:59 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:278 | 🚀 Starting Comprehensive System Verification
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:279 | ============================================================
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Configuration...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:20 | 🔍 Verifying Configuration...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:23 | Tier 1 Symbols: ['SPY', 'IWM', 'QQQ', 'AAPL', 'MSFT']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:24 | Tier 2 Symbols: ['META', 'AMD', 'NVDA', 'TSLA', 'AMZN']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:25 | Tier 3 Symbols: ['GOOGL', 'NFLX', 'BA', 'INTC', 'COIN', 'XLF', 'XLK', 'XLE']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:28 | Active Overnight Bias Symbols: ['SPY', 'IWM', 'QQQ']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:29 | Active VWAP Symbols: ['SPY', 'IWM']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:32 | Tier Risk Controls: {'tier1': {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}, 'tier2': {'max_positions': 1, 'position_size_multiplier': 0.7, 'time_stop_minutes': 30}, 'tier3': {'max_positions': 1, 'position_size_multiplier': 0.5, 'time_stop_minutes': 20}}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:45 | ✅ Total unique symbols: 18
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_configuration:46 | ✅ Configuration verification passed
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Configuration PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Symbol Tiers...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:52 | 🔍 Verifying Symbol Tier Assignments...
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:57 | Symbol Tier Mappings:
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   SPY: tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   IWM: tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   QQQ: tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   AAPL: tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   MSFT: tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   META: tier2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   AMD: tier2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   NVDA: tier2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   TSLA: tier2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   AMZN: tier2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   GOOGL: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   NFLX: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   BA: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   INTC: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   COIN: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   XLF: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   XLK: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:59 |   XLE: tier3
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:67 | ✅ SPY assigned to tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:67 | ✅ IWM assigned to tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:67 | ✅ QQQ assigned to tier1
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_tiers:69 | ✅ Symbol tier assignments verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Symbol Tiers PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Strategy Instances...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:75 | 🔍 Verifying Strategy Instances...
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:80 | Overnight Bias Instances: ['SPY', 'IWM', 'QQQ']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:85 |   SPY: tier=tier1, controls={'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:85 |   IWM: tier=tier1, controls={'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:85 |   QQQ: tier=tier1, controls={'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:97 | VWAP Instances: ['SPY', 'IWM']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:99 |   SPY: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:99 |   IWM: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_instances:101 | ✅ Strategy instances verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Strategy Instances PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Symbol Data Handling...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_data_handling:107 | 🔍 Verifying Symbol Data Handling...
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_data_handling:121 | ✅ SPY data: {'timestamp': 1760713019.312659, 'price': 443.0, 'volume': 1000, 'symbol': 'SPY'}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_data_handling:121 | ✅ IWM data: {'timestamp': 1760713019.312685, 'price': 245.5, 'volume': 1000, 'symbol': 'IWM'}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_data_handling:121 | ✅ QQQ data: {'timestamp': 1760713019.3127081, 'price': 380.0, 'volume': 1000, 'symbol': 'QQQ'}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_symbol_data_handling:123 | ✅ Symbol data handling verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Symbol Data Handling PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Tier Controls...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:129 | 🔍 Verifying Tier Controls...
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:139 | Testing SPY (tier1):
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:140 |   Max Positions: 2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:141 |   Position Multiplier: 1.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:142 |   Time Stop: 45 min
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:139 | Testing IWM (tier1):
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:140 |   Max Positions: 2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:141 |   Position Multiplier: 1.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:142 |   Time Stop: 45 min
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:139 | Testing QQQ (tier1):
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:140 |   Max Positions: 2
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:141 |   Position Multiplier: 1.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:142 |   Time Stop: 45 min
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_tier_controls:149 | ✅ Tier controls verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Tier Controls PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Position Sizing...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:155 | 🔍 Verifying Position Sizing...
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:180 | SPY (tier1):
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:181 |   Base Account: $7000.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:182 |   Tier Multiplier: 1.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:183 |   Adjusted Account: $7000.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:184 |   Position Size: {'status': 'approved', 'num_contracts': 42, 'position_value': 105.0, 'risk_amount': 105.0, 'available_capital': 7000.0}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:180 | IWM (tier1):
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:181 |   Base Account: $7000.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:182 |   Tier Multiplier: 1.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:183 |   Adjusted Account: $7000.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:184 |   Position Size: {'status': 'approved', 'num_contracts': 58, 'position_value': 104.4, 'risk_amount': 104.4, 'available_capital': 7000.0}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:180 | QQQ (tier1):
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:181 |   Base Account: $7000.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:182 |   Tier Multiplier: 1.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:183 |   Adjusted Account: $7000.0
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:184 |   Position Size: {'status': 'approved', 'num_contracts': 32, 'position_value': 102.4, 'risk_amount': 102.4, 'available_capital': 7000.0}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_position_sizing:190 | ✅ Position sizing verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Position Sizing PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Time Stops...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_time_stops:196 | 🔍 Verifying Time Stops...
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_time_stops:208 | SPY (tier1): Expected 45min, Got 45min
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_time_stops:208 | IWM (tier1): Expected 45min, Got 45min
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_time_stops:208 | QQQ (tier1): Expected 45min, Got 45min
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_time_stops:214 | ✅ Time stops verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Time Stops PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running Strategy Configuration...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_config:220 | 🔍 Verifying Strategy Configuration...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_config:224 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_config:228 | Configuration Validation: {'valid': True, 'errors': [], 'warnings': ['MAX_DAILY_LOSS is positive - this should be negative'], 'active_strategies': {'vwap': True, 'overnight_bias': True}}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_strategy_config:234 | ✅ Strategy configuration verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ Strategy Configuration PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:296 | 
+🔍 Running System Integration...
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_system_integration:240 | 🔍 Verifying System Integration...
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:56:59 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:56:59 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_system_integration:246 | System Status: {'strategy_active': False, 'active_strategies': {'vwap': True, 'overnight_bias': True}, 'overnight_bias_symbols': ['SPY', 'IWM', 'QQQ'], 'vwap_strategy_symbols': ['SPY', 'IWM'], 'current_bias': None, 'trigger_levels': (0.0, 0.0), 'entry_window_active': False, 'active_positions': 0, 'daily_pnl': 0.0, 'position_summary': {'total_positions': 0, 'available_cash': 4666.666666666666, 'total_risk': 0, 'daily_pnl': 0.0, 'max_daily_loss': 700.0, 'positions': []}, 'invalidation_status': {'consecutive_closes_inside': 0, 'consecutive_closes_across_vwap': 0, 'current_vwap': 0.0, 'vwap_side': None, 'active_positions': 0, 'max_consecutive_closes': 2}, 'overnight_bias_statuses': {'SPY': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'IWM': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'QQQ': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}}}
+2025-10-17 09:56:59 | INFO     | SystemVerification | verify_system_integration:272 | ✅ System integration verified
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:301 | ✅ System Integration PASSED
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:309 | 
+============================================================
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:310 | COMPREHENSIVE SYSTEM VERIFICATION SUMMARY
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:311 | ============================================================
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Configuration: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Symbol Tiers: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Strategy Instances: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Symbol Data Handling: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Tier Controls: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Position Sizing: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Time Stops: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | Strategy Configuration: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:318 | System Integration: PASS
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:320 | 
+Overall: 9/9 verifications passed
+2025-10-17 09:56:59 | INFO     | SystemVerification | main:323 | 🎉 ALL VERIFICATIONS PASSED! System is fully operational.
+2025-10-17 09:59:28 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:59:28 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:28 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:28 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:39 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:59:39 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:39 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:39 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:39 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:39 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:50 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:59:50 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:50 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:50 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:50 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:50 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:57 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:59:57 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:184 | Starting Miyagi Multi-Symbol Multi-Strategy Tests
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:185 | ============================================================
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:199 | 
+Running Configuration...
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_configuration:18 | Testing Multi-Symbol Configuration...
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_configuration:21 | Overnight Bias Symbols: ['SPY', 'IWM', 'QQQ']
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_configuration:22 | VWAP Strategy Symbols: ['SPY', 'IWM']
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_configuration:23 | Enable VWAP Strategy: True
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_configuration:24 | Enable Overnight Bias Strategy: True
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_configuration:35 | ✓ Multi-symbol configuration valid
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:204 | ✓ Configuration PASSED
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:199 | 
+Running Orchestrator Initialization...
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_orchestrator_initialization:41 | Testing Multi-Strategy Orchestrator Initialization...
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_orchestrator_initialization:48 | Overnight Bias Instances: ['SPY', 'IWM', 'QQQ']
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_orchestrator_initialization:49 | VWAP Instances: ['SPY', 'IWM']
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_orchestrator_initialization:52 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_orchestrator_initialization:56 | Strategy Status: {'strategy_active': False, 'active_strategies': {'vwap': True, 'overnight_bias': True}, 'overnight_bias_symbols': ['SPY', 'IWM', 'QQQ'], 'vwap_strategy_symbols': ['SPY', 'IWM'], 'current_bias': None, 'trigger_levels': (0.0, 0.0), 'entry_window_active': False, 'active_positions': 0, 'daily_pnl': 0.0, 'position_summary': {'total_positions': 0, 'available_cash': 4666.666666666666, 'total_risk': 0, 'daily_pnl': 0.0, 'max_daily_loss': 700.0, 'positions': []}, 'invalidation_status': {'consecutive_closes_inside': 0, 'consecutive_closes_across_vwap': 0, 'current_vwap': 0.0, 'vwap_side': None, 'active_positions': 0, 'max_consecutive_closes': 2}, 'overnight_bias_statuses': {'SPY': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'IWM': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'QQQ': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}}}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_orchestrator_initialization:58 | ✓ Multi-strategy orchestrator initialized successfully
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:204 | ✓ Orchestrator Initialization PASSED
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:199 | 
+Running Symbol Data Handling...
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_symbol_data_handling:68 | Testing Symbol-Specific Data Handling...
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | IWM Data: {'timestamp': 1760713197.443551, 'price': 245.5, 'volume': 1000, 'symbol': 'IWM'}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | SPY Data: {'timestamp': 1760713197.443574, 'price': 443.0, 'volume': 1000, 'symbol': 'SPY'}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | QQQ Data: {'timestamp': 1760713197.443597, 'price': 380.0, 'volume': 1000, 'symbol': 'QQQ'}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_symbol_data_handling:84 | ✓ Symbol-specific data handling working
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:204 | ✓ Symbol Data Handling PASSED
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:199 | 
+Running Strategy Instances...
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_strategy_instances:94 | Testing Strategy Instances...
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_strategy_instances:107 | SPY Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_strategy_instances:107 | IWM Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_strategy_instances:107 | QQQ Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_strategy_instances:116 | SPY VWAP Components: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_strategy_instances:116 | IWM VWAP Components: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_strategy_instances:118 | ✓ Strategy instances working for all symbols
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:204 | ✓ Strategy Instances PASSED
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:199 | 
+Running Overnight Analysis Simulation...
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:128 | Testing Overnight Analysis Simulation...
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for SPY
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:404 | Processing overnight analysis for SPY
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for IWM
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:404 | Processing overnight analysis for IWM
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for QQQ
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:404 | Processing overnight analysis for QQQ
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:140 | ✓ Overnight analysis simulation completed
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:204 | ✓ Overnight Analysis Simulation PASSED
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:199 | 
+Running Position Tracking...
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_position_tracking:150 | Testing Position Tracking...
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 09:59:57 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:59:57 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 1: {'strategy': 'overnight_bias', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 2: {'strategy': 'overnight_bias', 'symbol': 'SPY', 'bias': 'puts'}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 3: {'strategy': 'vwap', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_position_tracking:168 | Total positions: 3
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_position_tracking:172 | Active positions in status: 3
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | test_position_tracking:174 | ✓ Position tracking working across symbols
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:204 | ✓ Position Tracking PASSED
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:212 | 
+============================================================
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:213 | MIYAGI MULTI-SYMBOL TEST SUMMARY
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:214 | ============================================================
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:221 | Configuration: PASS
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:221 | Orchestrator Initialization: PASS
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:221 | Symbol Data Handling: PASS
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:221 | Strategy Instances: PASS
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:221 | Overnight Analysis Simulation: PASS
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:221 | Position Tracking: PASS
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:223 | 
+Overall: 6/6 tests passed
+2025-10-17 09:59:57 | INFO     | TestMultiSymbol | main:226 | 🎉 All Miyagi multi-symbol tests passed! System is ready for multi-symbol trading.
+2025-10-17 10:00:03 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 10:00:03 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:278 | 🚀 Starting Comprehensive System Verification
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:279 | ============================================================
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Configuration...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:20 | 🔍 Verifying Configuration...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:23 | Tier 1 Symbols: ['SPY', 'IWM', 'QQQ', 'AAPL', 'MSFT']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:24 | Tier 2 Symbols: ['META', 'AMD', 'NVDA', 'TSLA', 'AMZN']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:25 | Tier 3 Symbols: ['GOOGL', 'NFLX', 'BA', 'INTC', 'COIN', 'XLF', 'XLK', 'XLE']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:28 | Active Overnight Bias Symbols: ['SPY', 'IWM', 'QQQ']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:29 | Active VWAP Symbols: ['SPY', 'IWM']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:32 | Tier Risk Controls: {'tier1': {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}, 'tier2': {'max_positions': 1, 'position_size_multiplier': 0.7, 'time_stop_minutes': 30}, 'tier3': {'max_positions': 1, 'position_size_multiplier': 0.5, 'time_stop_minutes': 20}}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:45 | ✅ Total unique symbols: 18
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_configuration:46 | ✅ Configuration verification passed
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Configuration PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Symbol Tiers...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:52 | 🔍 Verifying Symbol Tier Assignments...
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:57 | Symbol Tier Mappings:
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   SPY: tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   IWM: tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   QQQ: tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   AAPL: tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   MSFT: tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   META: tier2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   AMD: tier2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   NVDA: tier2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   TSLA: tier2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   AMZN: tier2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   GOOGL: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   NFLX: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   BA: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   INTC: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   COIN: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   XLF: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   XLK: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:59 |   XLE: tier3
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:67 | ✅ SPY assigned to tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:67 | ✅ IWM assigned to tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:67 | ✅ QQQ assigned to tier1
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_tiers:69 | ✅ Symbol tier assignments verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Symbol Tiers PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Strategy Instances...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:75 | 🔍 Verifying Strategy Instances...
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:80 | Overnight Bias Instances: ['SPY', 'IWM', 'QQQ']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:85 |   SPY: tier=tier1, controls={'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:85 |   IWM: tier=tier1, controls={'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:85 |   QQQ: tier=tier1, controls={'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:97 | VWAP Instances: ['SPY', 'IWM']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:99 |   SPY: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:99 |   IWM: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_instances:101 | ✅ Strategy instances verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Strategy Instances PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Symbol Data Handling...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_data_handling:107 | 🔍 Verifying Symbol Data Handling...
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_data_handling:121 | ✅ IWM data: {'timestamp': 1760713203.38133, 'price': 245.5, 'volume': 1000, 'symbol': 'IWM'}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_data_handling:121 | ✅ SPY data: {'timestamp': 1760713203.381356, 'price': 443.0, 'volume': 1000, 'symbol': 'SPY'}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_data_handling:121 | ✅ QQQ data: {'timestamp': 1760713203.381378, 'price': 380.0, 'volume': 1000, 'symbol': 'QQQ'}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_symbol_data_handling:123 | ✅ Symbol data handling verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Symbol Data Handling PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Tier Controls...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:129 | 🔍 Verifying Tier Controls...
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:139 | Testing SPY (tier1):
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:140 |   Max Positions: 2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:141 |   Position Multiplier: 1.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:142 |   Time Stop: 45 min
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:139 | Testing IWM (tier1):
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:140 |   Max Positions: 2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:141 |   Position Multiplier: 1.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:142 |   Time Stop: 45 min
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:139 | Testing QQQ (tier1):
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:140 |   Max Positions: 2
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:141 |   Position Multiplier: 1.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:142 |   Time Stop: 45 min
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_tier_controls:149 | ✅ Tier controls verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Tier Controls PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Position Sizing...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:155 | 🔍 Verifying Position Sizing...
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:180 | SPY (tier1):
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:181 |   Base Account: $7000.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:182 |   Tier Multiplier: 1.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:183 |   Adjusted Account: $7000.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:184 |   Position Size: {'status': 'approved', 'num_contracts': 42, 'position_value': 105.0, 'risk_amount': 105.0, 'available_capital': 7000.0}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:180 | IWM (tier1):
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:181 |   Base Account: $7000.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:182 |   Tier Multiplier: 1.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:183 |   Adjusted Account: $7000.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:184 |   Position Size: {'status': 'approved', 'num_contracts': 58, 'position_value': 104.4, 'risk_amount': 104.4, 'available_capital': 7000.0}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:180 | QQQ (tier1):
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:181 |   Base Account: $7000.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:182 |   Tier Multiplier: 1.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:183 |   Adjusted Account: $7000.0
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:184 |   Position Size: {'status': 'approved', 'num_contracts': 32, 'position_value': 102.4, 'risk_amount': 102.4, 'available_capital': 7000.0}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_position_sizing:190 | ✅ Position sizing verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Position Sizing PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Time Stops...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_time_stops:196 | 🔍 Verifying Time Stops...
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_time_stops:208 | SPY (tier1): Expected 45min, Got 45min
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_time_stops:208 | IWM (tier1): Expected 45min, Got 45min
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_time_stops:208 | QQQ (tier1): Expected 45min, Got 45min
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_time_stops:214 | ✅ Time stops verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Time Stops PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running Strategy Configuration...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_config:220 | 🔍 Verifying Strategy Configuration...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_config:224 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_config:228 | Configuration Validation: {'valid': True, 'errors': [], 'warnings': ['MAX_DAILY_LOSS is positive - this should be negative'], 'active_strategies': {'vwap': True, 'overnight_bias': True}}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_strategy_config:234 | ✅ Strategy configuration verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ Strategy Configuration PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:296 | 
+🔍 Running System Integration...
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_system_integration:240 | 🔍 Verifying System Integration...
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:114 | Initializing strategy instances for multiple symbols
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for SPY (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for IWM (tier1)
+2025-10-17 10:00:03 | INFO     | OvernightBiasStrategy | set_tier_controls:526 | Set tier controls for tier1: {'max_positions': 2, 'position_size_multiplier': 1.0, 'time_stop_minutes': 45}
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:127 | Initialized Overnight Bias strategy for QQQ (tier1)
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for SPY
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:139 | Initialized VWAP strategy for IWM
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:141 | Strategy instances initialized: 3 Overnight Bias, 2 VWAP
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:98 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:103 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 10:00:03 | INFO     | MultiStrategyOrchestrator | __init__:110 | Overnight analysis needed for today - will process on startup
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_system_integration:246 | System Status: {'strategy_active': False, 'active_strategies': {'vwap': True, 'overnight_bias': True}, 'overnight_bias_symbols': ['SPY', 'IWM', 'QQQ'], 'vwap_strategy_symbols': ['SPY', 'IWM'], 'current_bias': None, 'trigger_levels': (0.0, 0.0), 'entry_window_active': False, 'active_positions': 0, 'daily_pnl': 0.0, 'position_summary': {'total_positions': 0, 'available_cash': 4666.666666666666, 'total_risk': 0, 'daily_pnl': 0.0, 'max_daily_loss': 700.0, 'positions': []}, 'invalidation_status': {'consecutive_closes_inside': 0, 'consecutive_closes_across_vwap': 0, 'current_vwap': 0.0, 'vwap_side': None, 'active_positions': 0, 'max_consecutive_closes': 2}, 'overnight_bias_statuses': {'SPY': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'IWM': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'QQQ': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}}}
+2025-10-17 10:00:03 | INFO     | SystemVerification | verify_system_integration:272 | ✅ System integration verified
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:301 | ✅ System Integration PASSED
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:309 | 
+============================================================
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:310 | COMPREHENSIVE SYSTEM VERIFICATION SUMMARY
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:311 | ============================================================
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Configuration: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Symbol Tiers: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Strategy Instances: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Symbol Data Handling: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Tier Controls: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Position Sizing: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Time Stops: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | Strategy Configuration: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:318 | System Integration: PASS
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:320 | 
+Overall: 9/9 verifications passed
+2025-10-17 10:00:03 | INFO     | SystemVerification | main:323 | 🎉 ALL VERIFICATIONS PASSED! System is fully operational.

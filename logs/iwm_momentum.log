@@ -23502,3 +23502,279 @@ IWM 0DTE Momentum System Configuration:
 2025-10-17 03:23:30 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
 2025-10-17 03:23:34 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
 2025-10-17 03:23:34 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:182 | Starting Overnight Bias Strategy Tests
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:183 | ==================================================
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:196 | 
+Running Overnight Bias Detection...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_overnight_bias_detection:18 | Testing Overnight Bias Detection...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_overnight_bias_detection:35 | Overnight Bias Result: {'status': 'pending', 'bias': None}
+2025-10-17 09:32:44 | ERROR    | TestOvernightBias | test_overnight_bias_detection:44 | ✗ Bias detection failed
+2025-10-17 09:32:44 | ERROR    | TestOvernightBias | main:203 | ✗ Overnight Bias Detection FAILED
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:196 | 
+Running 5-Minute Confirmation...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_five_minute_confirmation:50 | Testing 5-Minute Confirmation...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_five_minute_confirmation:75 | 5-Minute Confirmation Result: {'status': 'waiting', 'bias': 'calls'}
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_five_minute_confirmation:83 | Status: waiting
+2025-10-17 09:32:44 | ERROR    | TestOvernightBias | main:203 | ✗ 5-Minute Confirmation FAILED
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:196 | 
+Running Position Sizing...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_position_sizing:89 | Testing Position Sizing...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_position_sizing:99 | Position Sizing Result: {'status': 'approved', 'num_contracts': 42, 'position_value': 105.0, 'risk_amount': 105.0, 'available_capital': 7000.0}
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_position_sizing:102 | ✓ Position approved: 42 contracts
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_position_sizing:103 | ✓ Position value: $105.00
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_position_sizing:104 | ✓ Risk amount: $105.00
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:201 | ✓ Position Sizing PASSED
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:196 | 
+Running Exit Conditions...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_exit_conditions:113 | Testing Exit Conditions...
+2025-10-17 09:32:44 | ERROR    | TestOvernightBias | main:205 | ✗ Exit Conditions ERROR: can't subtract offset-naive and offset-aware datetimes
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:196 | 
+Running Strategy Configuration...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_strategy_config:152 | Testing Strategy Configuration...
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_strategy_config:157 | Configuration Valid: True
+2025-10-17 09:32:44 | WARNING  | TestOvernightBias | test_strategy_config:165 | Configuration Warnings:
+2025-10-17 09:32:44 | WARNING  | TestOvernightBias | test_strategy_config:167 |   - MAX_DAILY_LOSS is positive - this should be negative
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_strategy_config:171 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | test_strategy_config:175 | Can add position: True
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:201 | ✓ Strategy Configuration PASSED
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:209 | 
+==================================================
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:210 | TEST SUMMARY
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:211 | ==================================================
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:218 | Overnight Bias Detection: FAIL
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:218 | 5-Minute Confirmation: FAIL
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:218 | Position Sizing: PASS
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:218 | Exit Conditions: FAIL
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:218 | Strategy Configuration: PASS
+2025-10-17 09:32:44 | INFO     | TestOvernightBias | main:220 | 
+Overall: 2/5 tests passed
+2025-10-17 09:32:44 | ERROR    | TestOvernightBias | main:226 | ❌ Some tests failed. Please review the implementation.
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:229 | Starting Overnight Bias Strategy Tests
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:230 | ==================================================
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:243 | 
+Running Overnight Bias Detection...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_overnight_bias_detection:18 | Testing Overnight Bias Detection...
+2025-10-17 09:33:10 | ERROR    | TestOvernightBias | main:252 | ✗ Overnight Bias Detection ERROR: mock_time_check() missing 1 required positional argument: 'current_time'
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:243 | 
+Running 5-Minute Confirmation...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_five_minute_confirmation:77 | Testing 5-Minute Confirmation...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_five_minute_confirmation:122 | 5-Minute Confirmation Result: {'status': 'not_aligned', 'bias': 'calls'}
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_five_minute_confirmation:130 | Status: not_aligned
+2025-10-17 09:33:10 | ERROR    | TestOvernightBias | main:250 | ✗ 5-Minute Confirmation FAILED
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:243 | 
+Running Position Sizing...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_position_sizing:136 | Testing Position Sizing...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_position_sizing:146 | Position Sizing Result: {'status': 'approved', 'num_contracts': 42, 'position_value': 105.0, 'risk_amount': 105.0, 'available_capital': 7000.0}
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_position_sizing:149 | ✓ Position approved: 42 contracts
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_position_sizing:150 | ✓ Position value: $105.00
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_position_sizing:151 | ✓ Risk amount: $105.00
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:248 | ✓ Position Sizing PASSED
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:243 | 
+Running Exit Conditions...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:160 | Testing Exit Conditions...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:186 | Scenario 1: Price 245.0, VWAP 244.0
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:187 |   Result: hold - N/A
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:190 |   ✓ Correct exit decision
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:186 | Scenario 2: Price 240.0, VWAP 241.0
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:187 |   Result: close - back_inside_trigger_range
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:190 |   ✓ Correct exit decision
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:186 | Scenario 3: Price 243.0, VWAP 244.0
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:187 |   Result: close - vwap_cross
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_exit_conditions:190 |   ✓ Correct exit decision
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:248 | ✓ Exit Conditions PASSED
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:243 | 
+Running Strategy Configuration...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_strategy_config:199 | Testing Strategy Configuration...
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_strategy_config:204 | Configuration Valid: True
+2025-10-17 09:33:10 | WARNING  | TestOvernightBias | test_strategy_config:212 | Configuration Warnings:
+2025-10-17 09:33:10 | WARNING  | TestOvernightBias | test_strategy_config:214 |   - MAX_DAILY_LOSS is positive - this should be negative
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_strategy_config:218 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | test_strategy_config:222 | Can add position: True
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:248 | ✓ Strategy Configuration PASSED
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:256 | 
+==================================================
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:257 | TEST SUMMARY
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:258 | ==================================================
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:265 | Overnight Bias Detection: FAIL
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:265 | 5-Minute Confirmation: FAIL
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:265 | Position Sizing: PASS
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:265 | Exit Conditions: PASS
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:265 | Strategy Configuration: PASS
+2025-10-17 09:33:10 | INFO     | TestOvernightBias | main:267 | 
+Overall: 3/5 tests passed
+2025-10-17 09:33:10 | ERROR    | TestOvernightBias | main:273 | ❌ Some tests failed. Please review the implementation.
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:234 | Starting Overnight Bias Strategy Tests
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:235 | ==================================================
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:248 | 
+Running Overnight Bias Detection...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_overnight_bias_detection:18 | Testing Overnight Bias Detection...
+2025-10-17 09:33:17 | ERROR    | TestOvernightBias | main:257 | ✗ Overnight Bias Detection ERROR: mock_time_check() missing 2 required positional arguments: 'bar_data' and 'current_time'
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:248 | 
+Running 5-Minute Confirmation...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_five_minute_confirmation:77 | Testing 5-Minute Confirmation...
+2025-10-17 09:33:17 | INFO     | OvernightBiasStrategy | _process_five_minute_close:309 | Overnight Level Break: calls at 242.50
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_five_minute_confirmation:127 | 5-Minute Confirmation Result: {'status': 'entry_signal', 'bias': 'calls', 'entry_price': 242.5, 'trigger_level': 241.93, 'vwap': 241.0, 'ema20': 242.04761904761907, 'confidence': 0.0}
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_five_minute_confirmation:130 | ✓ Entry signal generated
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_five_minute_confirmation:131 | ✓ Entry Price: 242.5
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_five_minute_confirmation:132 | ✓ Trigger Level: 241.93
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:253 | ✓ 5-Minute Confirmation PASSED
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:248 | 
+Running Position Sizing...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_position_sizing:141 | Testing Position Sizing...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_position_sizing:151 | Position Sizing Result: {'status': 'approved', 'num_contracts': 42, 'position_value': 105.0, 'risk_amount': 105.0, 'available_capital': 7000.0}
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_position_sizing:154 | ✓ Position approved: 42 contracts
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_position_sizing:155 | ✓ Position value: $105.00
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_position_sizing:156 | ✓ Risk amount: $105.00
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:253 | ✓ Position Sizing PASSED
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:248 | 
+Running Exit Conditions...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:165 | Testing Exit Conditions...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:191 | Scenario 1: Price 245.0, VWAP 244.0
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:192 |   Result: hold - N/A
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:195 |   ✓ Correct exit decision
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:191 | Scenario 2: Price 240.0, VWAP 241.0
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:192 |   Result: close - back_inside_trigger_range
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:195 |   ✓ Correct exit decision
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:191 | Scenario 3: Price 243.0, VWAP 244.0
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:192 |   Result: close - vwap_cross
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_exit_conditions:195 |   ✓ Correct exit decision
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:253 | ✓ Exit Conditions PASSED
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:248 | 
+Running Strategy Configuration...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_strategy_config:204 | Testing Strategy Configuration...
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_strategy_config:209 | Configuration Valid: True
+2025-10-17 09:33:17 | WARNING  | TestOvernightBias | test_strategy_config:217 | Configuration Warnings:
+2025-10-17 09:33:17 | WARNING  | TestOvernightBias | test_strategy_config:219 |   - MAX_DAILY_LOSS is positive - this should be negative
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_strategy_config:223 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | test_strategy_config:227 | Can add position: True
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:253 | ✓ Strategy Configuration PASSED
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:261 | 
+==================================================
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:262 | TEST SUMMARY
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:263 | ==================================================
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:270 | Overnight Bias Detection: FAIL
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:270 | 5-Minute Confirmation: PASS
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:270 | Position Sizing: PASS
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:270 | Exit Conditions: PASS
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:270 | Strategy Configuration: PASS
+2025-10-17 09:33:17 | INFO     | TestOvernightBias | main:272 | 
+Overall: 4/5 tests passed
+2025-10-17 09:33:17 | ERROR    | TestOvernightBias | main:278 | ❌ Some tests failed. Please review the implementation.
+2025-10-17 09:48:18 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-17 09:48:18 | INFO     | SilentTradier | __init__:41 | Silent Tradier executor disabled - alerts only mode
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:184 | Starting Multi-Symbol Multi-Strategy Tests
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:185 | ============================================================
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:199 | 
+Running Configuration...
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_configuration:18 | Testing Multi-Symbol Configuration...
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_configuration:21 | Overnight Bias Symbols: ['IWM', 'SPY', 'QQQ']
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_configuration:22 | VWAP Strategy Symbols: ['IWM']
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_configuration:23 | Enable VWAP Strategy: True
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_configuration:24 | Enable Overnight Bias Strategy: True
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_configuration:35 | ✓ Multi-symbol configuration valid
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:204 | ✓ Configuration PASSED
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:199 | 
+Running Orchestrator Initialization...
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_orchestrator_initialization:41 | Testing Multi-Strategy Orchestrator Initialization...
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_orchestrator_initialization:48 | Overnight Bias Instances: ['IWM', 'SPY', 'QQQ']
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_orchestrator_initialization:49 | VWAP Instances: ['IWM']
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_orchestrator_initialization:52 | Active Strategies: {'vwap': True, 'overnight_bias': True}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_orchestrator_initialization:56 | Strategy Status: {'strategy_active': False, 'active_strategies': {'vwap': True, 'overnight_bias': True}, 'overnight_bias_symbols': ['IWM', 'SPY', 'QQQ'], 'vwap_strategy_symbols': ['IWM'], 'current_bias': None, 'trigger_levels': (0.0, 0.0), 'entry_window_active': False, 'active_positions': 0, 'daily_pnl': 0.0, 'position_summary': {'total_positions': 0, 'available_cash': 4666.666666666666, 'total_risk': 0, 'daily_pnl': 0.0, 'max_daily_loss': 700.0, 'positions': []}, 'invalidation_status': {'consecutive_closes_inside': 0, 'consecutive_closes_across_vwap': 0, 'current_vwap': 0.0, 'vwap_side': None, 'active_positions': 0, 'max_consecutive_closes': 2}, 'overnight_bias_statuses': {'IWM': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'SPY': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}, 'QQQ': {'strategy_name': 'Overnight Bias / 0DTE Execution', 'current_bias': None, 'bias_confidence': 0.0, 'overnight_high': None, 'overnight_low': None, 'current_ema20': 0.0, 'active_positions': 0, 'daily_pnl': 0.0, 'overnight_processed': False}}}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_orchestrator_initialization:58 | ✓ Multi-strategy orchestrator initialized successfully
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:204 | ✓ Orchestrator Initialization PASSED
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:199 | 
+Running Symbol Data Handling...
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_symbol_data_handling:68 | Testing Symbol-Specific Data Handling...
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | IWM Data: {'timestamp': 1760712498.860984, 'price': 245.5, 'volume': 1000, 'symbol': 'IWM'}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | SPY Data: {'timestamp': 1760712498.8611, 'price': 443.0, 'volume': 1000, 'symbol': 'SPY'}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_symbol_data_handling:78 | QQQ Data: {'timestamp': 1760712498.861127, 'price': 380.0, 'volume': 1000, 'symbol': 'QQQ'}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_symbol_data_handling:84 | ✓ Symbol-specific data handling working
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:204 | ✓ Symbol Data Handling PASSED
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:199 | 
+Running Strategy Instances...
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_strategy_instances:94 | Testing Strategy Instances...
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_strategy_instances:107 | IWM Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_strategy_instances:107 | SPY Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_strategy_instances:107 | QQQ Overnight Bias Status: Overnight Bias / 0DTE Execution
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_strategy_instances:116 | IWM VWAP Components: ['session_vwap', 'five_min_confirmation', 'position_sizing', 'hard_invalidation']
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_strategy_instances:118 | ✓ Strategy instances working for all symbols
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:204 | ✓ Strategy Instances PASSED
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:199 | 
+Running Overnight Analysis Simulation...
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:128 | Testing Overnight Analysis Simulation...
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:378 | Processing overnight analysis for IWM
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for SPY
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:378 | Processing overnight analysis for SPY
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:135 | Simulating overnight analysis for QQQ
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _process_overnight_analysis_for_symbol:378 | Processing overnight analysis for QQQ
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_overnight_analysis_simulation:140 | ✓ Overnight analysis simulation completed
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:204 | ✓ Overnight Analysis Simulation PASSED
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:199 | 
+Running Position Tracking...
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_position_tracking:150 | Testing Position Tracking...
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:105 | Initializing strategy instances for multiple symbols
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for SPY
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:111 | Initialized Overnight Bias strategy for QQQ
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:123 | Initialized VWAP strategy for IWM
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | _initialize_strategy_instances:125 | Strategy instances initialized: 3 Overnight Bias, 1 VWAP
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:89 | Daily reset check: current_date=2025-10-17, has_last_date=False, last_date=None
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:94 | New day detected - resetting overnight analysis flag for 2025-10-17
+2025-10-17 09:48:18 | INFO     | MultiStrategyOrchestrator | __init__:101 | Overnight analysis needed for today - will process on startup
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 1: {'strategy': 'overnight_bias', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 2: {'strategy': 'overnight_bias', 'symbol': 'SPY', 'bias': 'puts'}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_position_tracking:165 | Added position 3: {'strategy': 'vwap', 'symbol': 'IWM', 'bias': 'calls'}
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_position_tracking:168 | Total positions: 3
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_position_tracking:172 | Active positions in status: 3
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | test_position_tracking:174 | ✓ Position tracking working across symbols
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:204 | ✓ Position Tracking PASSED
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:212 | 
+============================================================
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:213 | MULTI-SYMBOL TEST SUMMARY
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:214 | ============================================================
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:221 | Configuration: PASS
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:221 | Orchestrator Initialization: PASS
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:221 | Symbol Data Handling: PASS
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:221 | Strategy Instances: PASS
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:221 | Overnight Analysis Simulation: PASS
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:221 | Position Tracking: PASS
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:223 | 
+Overall: 6/6 tests passed
+2025-10-17 09:48:18 | INFO     | TestMultiSymbol | main:226 | 🎉 All multi-symbol tests passed! System is ready for multi-symbol trading.

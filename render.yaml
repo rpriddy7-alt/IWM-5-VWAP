@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: iwm-5-vwap-system
+    name: miyagi-5-vwap-system
     runtime: python
     plan: starter
     buildCommand: |
@@ -45,7 +45,7 @@ services:
       - key: TRADIER_TAKE_PROFIT_PCT
         value: "3.0"
     disk:
-      name: iwm-pnl-data
+      name: miyagi-pnl-data
       mountPath: /opt/render/project/artifacts
       sizeGB: 1
 
