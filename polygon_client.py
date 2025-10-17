@@ -195,14 +195,9 @@ class PolygonWebSocketClient:
         import os
         import time
         
-        # Get instance ID to determine if this is the "primary" instance
+        # Get instance ID for logging
         instance_id = os.getenv('RENDER_INSTANCE_ID', '')
         logger.info(f"Instance ID: {instance_id}")
-        
-        # Only allow specific instance to connect (the one that starts first)
-        if instance_id and not instance_id.endswith('bbg6v'):
-            logger.info(f"Skipping connection for instance {instance_id} - only primary instance should connect")
-            return
         
         initial_delay = random.uniform(30, 60)  # Very long delay 30-60 seconds
         logger.info(f"Waiting {initial_delay:.1f} seconds before connecting...")
