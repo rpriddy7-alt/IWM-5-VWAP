@@ -329,7 +329,7 @@ class TradierTradingClient:
             'position_size': self.position_size,
             'account_equity': account.get('account', {}).get('total_equity', 'Unknown') if account else 'Unknown',
             'buying_power': account.get('account', {}).get('buying_power', 'Unknown') if account else 'Unknown',
-            'sandbox_mode': Config.TRADIER_SANDBOX_MODE,
+            'sandbox_mode': getattr(Config, 'TRADIER_SANDBOX_MODE', False),
             'positions': [
                 {
                     'symbol': pos.get('symbol'),

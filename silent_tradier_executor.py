@@ -260,8 +260,8 @@ class SilentTradierExecutor:
     def get_daily_summary(self) -> Dict:
         """Get daily trading summary."""
         return {
-            'daily_balance': self.daily_balance,
-            'available_balance': self.available_balance,
+            'daily_balance': getattr(self, 'daily_balance', 1000.0),
+            'available_balance': getattr(self, 'available_balance', 1000.0),
             'daily_pnl': self.daily_pnl,
             'daily_trades': self.daily_trades,
             'active_positions': len(self.active_positions),

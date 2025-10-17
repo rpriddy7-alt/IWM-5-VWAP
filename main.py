@@ -91,6 +91,7 @@ def main():
     # Signal handler for graceful shutdown
     def signal_handler(signum, frame):
         logger.info(f"Received signal {signum}, shutting down...")
+        strategy.strategy_active = False
         if 'health_server' in locals():
             health_server.shutdown()
         sys.exit(0)
@@ -112,6 +113,7 @@ def main():
     finally:
         # Cleanup
         logger.info("Shutting down system...")
+        strategy.strategy_active = False
         if 'health_server' in locals():
             health_server.shutdown()
         logger.info("System shutdown complete")

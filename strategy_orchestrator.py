@@ -74,9 +74,10 @@ class IWMStrategyOrchestrator:
         else:
             logger.info(f"Same day - keeping overnight analysis flag as {self.overnight_processed_today}")
         
-        # FORCE RESET: Always reset overnight analysis flag on deployment to ensure it runs
-        self.overnight_processed_today = False
-        logger.info("FORCE RESET: Overnight analysis flag reset to False to ensure it runs")
+        # Check if we need to process overnight analysis for today
+        current_hour = current_time.hour
+        if current_hour >= 3 and not self.overnight_processed_today:
+            logger.info("Overnight analysis needed for today - will process on startup")
         
     def start_strategy(self):
         """Start the complete strategy."""

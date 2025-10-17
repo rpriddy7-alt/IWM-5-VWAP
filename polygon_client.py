@@ -190,7 +190,7 @@ class PolygonWebSocketClient:
             logger.info(f"Already connected and authenticated [{self.ws_type}]")
             return
         
-        # Add very long random delay to prevent multiple instances from connecting simultaneously
+        # Add moderate delay to prevent multiple instances from connecting simultaneously
         import random
         import os
         import time
@@ -199,7 +199,8 @@ class PolygonWebSocketClient:
         instance_id = os.getenv('RENDER_INSTANCE_ID', '')
         logger.info(f"Instance ID: {instance_id}")
         
-        initial_delay = random.uniform(30, 60)  # Very long delay 30-60 seconds
+        # Reduced delay to allow faster startup
+        initial_delay = random.uniform(5, 15)  # Reduced delay 5-15 seconds
         logger.info(f"Waiting {initial_delay:.1f} seconds before connecting...")
         time.sleep(initial_delay)
         
@@ -217,8 +218,8 @@ class PolygonWebSocketClient:
                 except Exception as e:
                     logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
                     if "max_connections" in str(e):
-                        logger.error("Connection limit exceeded - waiting 5 minutes before retry")
-                        time.sleep(300)  # Wait 5 minutes for connection limit
+                        logger.error("Connection limit exceeded - waiting 2 minutes before retry")
+                        time.sleep(120)  # Wait 2 minutes for connection limit
                     if attempt < max_retries - 1:
                         wait_time = delay * (2 ** attempt)  # Exponential backoff
                         logger.info(f"Retrying in {wait_time} seconds...")

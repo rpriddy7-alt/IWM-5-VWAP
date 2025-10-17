@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: iwm-momentum-system
+    name: iwm-5-vwap-system
     runtime: python
     plan: starter
     buildCommand: |

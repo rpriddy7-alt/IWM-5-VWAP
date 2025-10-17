@@ -12,5 +12,5 @@ pytz>=2024.1
 # Additional dependencies for production
 cryptography>=41.0.0
 
-# Trading execution (optional)
+# HTTP server for health checks
 # No additional dependencies needed for Tradier API
