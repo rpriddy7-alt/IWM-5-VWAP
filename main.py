@@ -80,8 +80,9 @@ def main():
         # Initialize strategy orchestrator
         strategy = IWMStrategyOrchestrator()
         
-        # Start the complete strategy (this will run continuously)
-        strategy.start_strategy()
+        # Start the complete strategy in a separate thread
+        strategy_thread = threading.Thread(target=strategy.start_strategy, daemon=True)
+        strategy_thread.start()
         
         # Keep the main process alive with a keep-alive mechanism
         logger.info("Strategy started - keeping process alive...")
