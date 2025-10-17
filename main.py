@@ -52,7 +52,10 @@ def start_health_server():
     
     def run_server():
         logger.info(f"Health check server started on port {port}")
-        server.serve_forever()
+        try:
+            server.serve_forever()
+        except Exception as e:
+            logger.error(f"Health server error: {e}")
     
     health_thread = threading.Thread(target=run_server, daemon=True)
     health_thread.start()
@@ -67,6 +70,8 @@ def main():
     import os
     import time
     import random
+    import signal
+    import sys
     
     # Add short startup delay to prevent multiple instances from starting simultaneously
     startup_delay = random.uniform(1, 3)
@@ -76,26 +81,34 @@ def main():
     # Start health check server
     health_server = start_health_server()
     
+    # Initialize strategy orchestrator
+    strategy = IWMStrategyOrchestrator()
+    
+    # Start the complete strategy in a separate thread
+    strategy_thread = threading.Thread(target=strategy.start_strategy, daemon=True)
+    strategy_thread.start()
+    
+    # Signal handler for graceful shutdown
+    def signal_handler(signum, frame):
+        logger.info(f"Received signal {signum}, shutting down...")
+        if 'health_server' in locals():
+            health_server.shutdown()
+        sys.exit(0)
+    
+    signal.signal(signal.SIGTERM, signal_handler)
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    # Keep the main process alive with a keep-alive mechanism
+    logger.info("Strategy started - keeping process alive...")
     try:
-        # Initialize strategy orchestrator
-        strategy = IWMStrategyOrchestrator()
-        
-        # Start the complete strategy in a separate thread
-        strategy_thread = threading.Thread(target=strategy.start_strategy, daemon=True)
-        strategy_thread.start()
-        
-        # Keep the main process alive with a keep-alive mechanism
-        logger.info("Strategy started - keeping process alive...")
         while True:
             time.sleep(30)  # Sleep for 30 seconds
             logger.info("Keep-alive: Process still running...")
-            
     except KeyboardInterrupt:
         logger.info("Received keyboard interrupt, shutting down...")
     except Exception as e:
         logger.error(f"Strategy error: {e}")
         raise
-    
     finally:
         # Cleanup
         logger.info("Shutting down system...")
