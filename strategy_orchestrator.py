@@ -354,6 +354,14 @@ class IWMStrategyOrchestrator:
         """Handle shutdown signals."""
         logger.info(f"Received signal {signum}, shutting down...")
         self.strategy_active = False
+        
+        # Cleanup resources
+        logger.info("Cleaning up resources")
+        if hasattr(self, 'polygon_ws'):
+            self.polygon_ws.disconnect()
+        if hasattr(self, 'session_vwap'):
+            self.session_vwap.end_session()
+        logger.info("Cleanup complete")
         self._cleanup()
         sys.exit(0)
     

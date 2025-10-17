@@ -70,9 +70,11 @@ def main():
         # Initialize strategy orchestrator
         strategy = IWMStrategyOrchestrator()
         
-        # Start the complete strategy
+        # Start the complete strategy (this will run continuously)
         strategy.start_strategy()
         
+    except KeyboardInterrupt:
+        logger.info("Received keyboard interrupt, shutting down...")
     except Exception as e:
         logger.error(f"Strategy error: {e}")
         raise
