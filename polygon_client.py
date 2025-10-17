@@ -85,6 +85,11 @@ class PolygonWebSocketClient:
     def on_error(self, ws, error):
         """Handle WebSocket error."""
         logger.error(f"WebSocket error [{self.ws_type}]: {error}")
+        
+        # Handle connection limit errors with delay
+        if "max_connections" in str(error):
+            logger.error("Connection limit exceeded - waiting before retry")
+            time.sleep(60)  # Wait 1 minute before retry
     
     def on_close(self, ws, close_status_code, close_msg):
         """Handle WebSocket close."""
@@ -127,6 +132,22 @@ class PolygonWebSocketClient:
             raise ConnectionError(f"Failed to authenticate WebSocket [{self.ws_type}]")
         
         logger.info(f"WebSocket connected and authenticated [{self.ws_type}]")
+    
+    def connect_with_retry(self, max_retries=3, delay=5):
+        """Connect with retry logic to prevent rapid reconnection."""
+        for attempt in range(max_retries):
+            try:
+                self.connect()
+                return
+            except Exception as e:
+                logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
+                if attempt < max_retries - 1:
+                    wait_time = delay * (2 ** attempt)  # Exponential backoff
+                    logger.info(f"Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                else:
+                    logger.error(f"Failed to connect after {max_retries} attempts")
+                    raise
     
     def subscribe(self, channels: List[str]):
         """

@@ -96,8 +96,8 @@ class IWMStrategyOrchestrator:
         """Start data feeds."""
         logger.info("Starting data feeds")
         
-        # Connect to Polygon WebSocket
-        self.polygon_ws.connect()
+        # Connect to Polygon WebSocket with retry logic
+        self.polygon_ws.connect_with_retry()
         
         # Subscribe to IWM stock data
         self.polygon_ws.subscribe(f"stocks.{Config.UNDERLYING_SYMBOL}")

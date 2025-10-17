@@ -23424,3 +23424,77 @@ IWM 0DTE Momentum System Configuration:
 2025-10-16 21:15:37 | INFO     | PnLTracker | _load_data:48 | Loaded existing P&L data: 7 trades, $-17.00 balance
 2025-10-16 21:15:37 | INFO     | PnLTracker | __init__:39 | P&L Tracker initialized at data
 2025-10-16 21:15:37 | INFO     | PnLTracker | __init__:40 | Lifetime Balance: $-17.00
+2025-10-16 22:22:45 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-16 22:22:45 | WARNING  | CorrectedAlerts | send_buy_alert:56 | 🚨 CORRECTED ALERT: send_buy_alert called!
+2025-10-16 22:22:45 | WARNING  | CorrectedAlerts | send_buy_alert:57 | 🚨 CORRECTED ALERT: strategy=momentum, signal_data keys: ['current_price', 'vwap_1min', 'confidence', 'direction']
+2025-10-16 22:22:45 | WARNING  | CorrectedAlerts | send_buy_alert:58 | 🚨 CORRECTED ALERT: contract_data: {'symbol': 'IWM250117C00250000', 'strike': 250.0, 'delta': 0.5, 'iv': 25.5, 'mid': 1.25, 'spread_pct': 2.5, 'bid_size': 10, 'ask_size': 15, 'contract_type': 'call'}
+2025-10-16 22:22:46 | INFO     | CorrectedAlerts | _send_alert:356 | ✓ Corrected alert sent: 🚀 IWM 0DTE CALL — MOMENTUM BUY
+2025-10-16 22:28:52 | INFO     | IWM5VWAPAlerts | send_entry_alert:38 | 🚨 IWM-5-VWAP ENTRY ALERT
+2025-10-16 22:28:53 | INFO     | IWM5VWAPAlerts | _send_alert:181 | ✅ Alert sent successfully: 📞 IWM-5-VWAP CALL ENTRY
+2025-10-16 22:28:53 | INFO     | IWM5VWAPAlerts | send_exit_alert:92 | 💰 IWM-5-VWAP EXIT ALERT
+2025-10-16 22:28:53 | INFO     | IWM5VWAPAlerts | _send_alert:181 | ✅ Alert sent successfully: 💰 IWM-5-VWAP CALL EXIT
+2025-10-16 23:31:37 | INFO     | IWM5VWAPCompleteAlerts | send_overnight_analysis_alert:53 | 🌙 OVERNIGHT ANALYSIS ALERT
+2025-10-16 23:31:37 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:295 | ✅ Alert sent successfully: 🌙 IWM-5-VWAP OVERNIGHT ANALYSIS
+2025-10-16 23:31:37 | INFO     | IWM5VWAPCompleteAlerts | send_buy_alert:143 | 🚨 BUY ALERT #1
+2025-10-16 23:31:37 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:295 | ✅ Alert sent successfully: **BUY**
+2025-10-16 23:31:37 | INFO     | IWM5VWAPCompleteAlerts | send_sell_alert:196 | 💰 SELL ALERT #1
+2025-10-16 23:31:38 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:295 | ✅ Alert sent successfully: **SELL**
+2025-10-16 23:31:38 | INFO     | IWM5VWAPCompleteAlerts | send_soft_sell_alert:246 | 🔔 SOFT SELL ALERT #1
+2025-10-16 23:31:38 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:295 | ✅ Alert sent successfully: 🔔 SOFT SELL #1
+2025-10-16 23:31:38 | INFO     | IWM5VWAPCompleteAlerts | send_market_day_review_alert:112 | 📊 MARKET DAY REVIEW ALERT
+2025-10-16 23:31:38 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:295 | ✅ Alert sent successfully: 📊 IWM-5-VWAP DAILY REVIEW
+2025-10-16 23:35:33 | INFO     | IWM5VWAPCompleteAlerts | send_soft_sell_alert:246 | 🔔 SOFT SELL ALERT #1
+2025-10-16 23:35:33 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:307 | ✅ Alert sent successfully: 🔔 SOFT SELL #1
+2025-10-16 23:35:33 | INFO     | IWM5VWAPCompleteAlerts | send_soft_sell_alert:246 | 🔔 SOFT SELL ALERT #1
+2025-10-16 23:35:34 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:307 | ✅ Alert sent successfully: 🔔 SOFT SELL #1
+2025-10-16 23:35:34 | INFO     | IWM5VWAPCompleteAlerts | send_soft_sell_alert:246 | 🔔 SOFT SELL ALERT #1
+2025-10-16 23:35:34 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:307 | ✅ Alert sent successfully: 🔔 SOFT SELL #1
+2025-10-16 23:35:34 | INFO     | IWM5VWAPCompleteAlerts | send_soft_sell_alert:246 | 🔔 SOFT SELL ALERT #1
+2025-10-16 23:35:35 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:307 | ✅ Alert sent successfully: 🔔 SOFT SELL #1
+2025-10-16 23:42:52 | INFO     | IWM5VWAPCompleteAlerts | send_sell_max_alert:263 | 💰 SELL MAX ALERT #1
+2025-10-16 23:42:52 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:333 | ✅ Alert sent successfully: 💰 SELL MAX #1
+2025-10-17 00:04:56 | INFO     | IWM5VWAPCompleteAlerts | send_overnight_analysis_alert:69 | 🌙 OVERNIGHT ANALYSIS ALERT
+2025-10-17 00:04:56 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:333 | ✅ Alert sent successfully: 🌙 IWM-5-VWAP OVERNIGHT ANALYSIS
+2025-10-17 00:04:56 | INFO     | IWM5VWAPCompleteAlerts | send_buy_alert:159 | 🚨 BUY ALERT #1
+2025-10-17 00:04:57 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:333 | ✅ Alert sent successfully: **BUY**
+2025-10-17 00:04:57 | INFO     | IWM5VWAPCompleteAlerts | send_sell_alert:212 | 💰 SELL ALERT #1
+2025-10-17 00:04:57 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:333 | ✅ Alert sent successfully: **SELL**
+2025-10-17 00:04:57 | INFO     | IWM5VWAPCompleteAlerts | send_sell_max_alert:263 | 💰 SELL MAX ALERT #1
+2025-10-17 00:04:57 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:333 | ✅ Alert sent successfully: 💰 SELL MAX #1
+2025-10-17 00:04:57 | INFO     | IWM5VWAPCompleteAlerts | send_market_day_review_alert:128 | 📊 MARKET DAY REVIEW ALERT
+2025-10-17 00:04:58 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:333 | ✅ Alert sent successfully: 📊 IWM-5-VWAP DAILY REVIEW
+2025-10-17 00:19:38 | INFO     | PnLTracker | _load_data:48 | Loaded existing P&L data: 7 trades, $-17.00 balance
+2025-10-17 00:19:38 | INFO     | PnLTracker | __init__:39 | P&L Tracker initialized at data
+2025-10-17 00:19:38 | INFO     | PnLTracker | __init__:40 | Lifetime Balance: $-17.00
+2025-10-17 00:19:59 | INFO     | IWM5VWAPCompleteAlerts | send_overnight_analysis_alert:69 | 🌙 OVERNIGHT ANALYSIS ALERT
+2025-10-17 00:20:00 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:318 | ✅ Alert sent successfully: 🌙 IWM-5-VWAP OVERNIGHT ANALYSIS
+2025-10-17 00:20:00 | INFO     | IWM5VWAPCompleteAlerts | send_buy_alert:159 | 🚨 BUY ALERT #1
+2025-10-17 00:20:00 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:318 | ✅ Alert sent successfully: **BUY**
+2025-10-17 00:20:00 | INFO     | IWM5VWAPCompleteAlerts | send_sell_alert:213 | 💰 SELL ALERT #1
+2025-10-17 00:20:01 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:318 | ✅ Alert sent successfully: **SELL**
+2025-10-17 00:20:01 | INFO     | IWM5VWAPCompleteAlerts | send_sell_max_alert:269 | 💰 SELL MAX ALERT #1 - RARE ALERT
+2025-10-17 00:20:01 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:318 | ✅ Alert sent successfully: 💰 SELL MAX #1
+2025-10-17 00:20:01 | INFO     | IWM5VWAPCompleteAlerts | send_market_day_review_alert:128 | 📊 MARKET DAY REVIEW ALERT
+2025-10-17 00:20:01 | INFO     | IWM5VWAPCompleteAlerts | _send_alert:318 | ✅ Alert sent successfully: 📊 IWM-5-VWAP DAILY REVIEW
+2025-10-17 00:20:43 | INFO     | PnLTracker | _load_data:48 | Loaded existing P&L data: 7 trades, $-17.00 balance
+2025-10-17 00:20:43 | INFO     | PnLTracker | __init__:39 | P&L Tracker initialized at data
+2025-10-17 00:20:43 | INFO     | PnLTracker | __init__:40 | Lifetime Balance: $-17.00
+2025-10-17 00:20:59 | INFO     | StrategyScan | <module>:13 | ✅ Logging system operational
+2025-10-17 00:20:59 | INFO     | ConfigDebug | validate:107 | Environment check - RENDER: Not set
+2025-10-17 00:20:59 | INFO     | ConfigDebug | validate:108 | POLYGON_API_KEY: MISSING
+2025-10-17 00:20:59 | INFO     | ConfigDebug | validate:109 | PUSHOVER_TOKEN: SET
+2025-10-17 00:20:59 | INFO     | ConfigDebug | validate:110 | PUSHOVER_USER_KEY: SET
+2025-10-17 00:20:59 | INFO     | ConfigDebug | validate:111 | TRADIER_ENABLED: False
+2025-10-17 00:20:59 | INFO     | ConfigDebug | validate:112 | TRADIER_TOKEN: MISSING
+2025-10-17 00:24:16 | INFO     | ConfigDebug | validate:107 | Environment check - RENDER: Not set
+2025-10-17 00:24:16 | INFO     | ConfigDebug | validate:108 | POLYGON_API_KEY: MISSING
+2025-10-17 00:24:16 | INFO     | ConfigDebug | validate:109 | PUSHOVER_TOKEN: SET
+2025-10-17 00:24:16 | INFO     | ConfigDebug | validate:110 | PUSHOVER_USER_KEY: SET
+2025-10-17 00:24:16 | INFO     | ConfigDebug | validate:111 | TRADIER_ENABLED: False
+2025-10-17 00:24:16 | INFO     | ConfigDebug | validate:112 | TRADIER_TOKEN: MISSING
+2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:107 | Environment check - RENDER: Not set
+2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:108 | POLYGON_API_KEY: SET
+2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:109 | PUSHOVER_TOKEN: SET
+2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:110 | PUSHOVER_USER_KEY: SET
+2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:111 | TRADIER_ENABLED: False
+2025-10-17 00:24:24 | INFO     | ConfigDebug | validate:112 | TRADIER_TOKEN: MISSING
