@@ -23413,3 +23413,14 @@ IWM 0DTE Momentum System Configuration:
 2025-10-16 20:39:31 | INFO     | ConfigDebug | validate:110 | PUSHOVER_USER_KEY: SET
 2025-10-16 20:39:31 | INFO     | ConfigDebug | validate:111 | TRADIER_ENABLED: False
 2025-10-16 20:39:31 | INFO     | ConfigDebug | validate:112 | TRADIER_TOKEN: MISSING
+2025-10-16 20:47:21 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-16 20:51:21 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-16 21:04:20 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-16 21:04:20 | ERROR    | PolygonClient | _request:234 | HTTP error on /test: 404 Client Error: Not Found for url: https://api.polygon.io/test?apiKey=
+2025-10-16 21:04:21 | ERROR    | PolygonClient | _request:234 | HTTP error on /test: 404 Client Error: Not Found for url: https://api.polygon.io/test?apiKey=
+2025-10-16 21:04:23 | ERROR    | PolygonClient | _request:234 | HTTP error on /test: 404 Client Error: Not Found for url: https://api.polygon.io/test?apiKey=
+2025-10-16 21:04:37 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-16 21:15:37 | INFO     | TradierClient | __init__:37 | Tradier trading disabled - alerts only mode
+2025-10-16 21:15:37 | INFO     | PnLTracker | _load_data:48 | Loaded existing P&L data: 7 trades, $-17.00 balance
+2025-10-16 21:15:37 | INFO     | PnLTracker | __init__:39 | P&L Tracker initialized at data
+2025-10-16 21:15:37 | INFO     | PnLTracker | __init__:40 | Lifetime Balance: $-17.00
