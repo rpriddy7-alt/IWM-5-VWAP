@@ -83,6 +83,12 @@ def main():
         # Start the complete strategy (this will run continuously)
         strategy.start_strategy()
         
+        # Keep the main process alive with a keep-alive mechanism
+        logger.info("Strategy started - keeping process alive...")
+        while True:
+            time.sleep(30)  # Sleep for 30 seconds
+            logger.info("Keep-alive: Process still running...")
+            
     except KeyboardInterrupt:
         logger.info("Received keyboard interrupt, shutting down...")
     except Exception as e:
