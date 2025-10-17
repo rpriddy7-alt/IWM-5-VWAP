@@ -69,7 +69,8 @@ class SilentTradierExecutor:
                 logger.warning("Tradier not configured - using simulation mode")
                 self.available_balance = 1000.0
         except Exception as e:
-            logger.error(f"Balance check failed: {e}")
+            logger.error(f"Tradier balance check failed: {e}")
+            logger.info("Silent trading disabled due to Tradier error - ALERTS CONTINUE NORMALLY")
             self.silent_enabled = False
     
     def execute_silent_buy(self, alert_data: Dict) -> bool:

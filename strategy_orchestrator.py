@@ -201,6 +201,7 @@ class IWMStrategyOrchestrator:
             logger.info("Tradier balance check completed (SEPARATE FROM ALERTS)")
         except Exception as e:
             logger.error(f"Tradier balance check failed: {e}")
+            logger.info("ALERTS CONTINUE NORMALLY - Tradier issues do not affect strategy")
             # Alerts continue regardless of Tradier issues
     
     def _is_in_entry_window(self, current_time: datetime) -> bool:
