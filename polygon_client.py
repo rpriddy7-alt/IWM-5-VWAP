@@ -358,6 +358,55 @@ class PolygonRESTClient:
             return results
         return None
     
+    def get_market_status(self) -> Optional[Dict]:
+        """
+        Get current market status.
+        
+        Returns:
+            Market status dict or None
+        """
+        endpoint = "/v1/marketstatus/now"
+        data = self._request(endpoint)
+        
+        if data and data.get('status') == 'OK':
+            return data.get('results')
+        return None
+    
+    def get_ticker_details(self, ticker: str) -> Optional[Dict]:
+        """
+        Get ticker details for validation.
+        
+        Args:
+            ticker: Ticker symbol (e.g., 'IWM')
+            
+        Returns:
+            Ticker details dict or None
+        """
+        endpoint = f"/v3/reference/tickers/{ticker}"
+        data = self._request(endpoint)
+        
+        if data and data.get('status') == 'OK':
+            return data.get('results')
+        return None
+    
+    def get_previous_close(self, ticker: str) -> Optional[Dict]:
+        """
+        Get previous close data for gap analysis.
+        
+        Args:
+            ticker: Ticker symbol (e.g., 'IWM')
+            
+        Returns:
+            Previous close data or None
+        """
+        endpoint = f"/v2/aggs/ticker/{ticker}/prev"
+        data = self._request(endpoint)
+        
+        if data and data.get('status') == 'OK':
+            results = data.get('results', [])
+            return results[0] if results else None
+        return None
+    
     def get_aggregates(self, ticker: str, multiplier: int = 1, 
                        timespan: str = "minute", from_ts: str = None, 
                        to_ts: str = None, limit: int = 50) -> Optional[List[Dict]]:

@@ -93,27 +93,16 @@ class IWMStrategyOrchestrator:
         logger.info("Strategy components initialized")
     
     def _start_data_feeds(self):
-        """Start data feeds using enhanced Polygon client."""
-        logger.info("Starting enhanced data feeds")
+        """Start data feeds for IWM-5-VWAP strategy."""
+        logger.info("Starting IWM data feeds")
         
-        try:
-            # Import enhanced client
-            from enhanced_polygon_client import EnhancedPolygonClient
-            
-            # Initialize enhanced client
-            self.enhanced_polygon = EnhancedPolygonClient()
-            
-            # Connect to multiple Polygon services
-            self.enhanced_polygon.connect_all_services()
-            
-            logger.info("Enhanced data feeds started with multiple Polygon services")
-            
-        except ImportError:
-            # Fallback to original client
-            logger.warning("Enhanced client not available, using original client")
-            self.polygon_ws.connect_with_retry()
-            self.polygon_ws.subscribe(f"stocks.{Config.UNDERLYING_SYMBOL}")
-            logger.info("Data feeds started with original client")
+        # Connect to Polygon WebSocket with retry logic and connection lock
+        self.polygon_ws.connect_with_retry()
+        
+        # Subscribe to IWM stock data only (what we need for VWAP strategy)
+        self.polygon_ws.subscribe(f"stocks.{Config.UNDERLYING_SYMBOL}")
+        
+        logger.info("IWM data feeds started successfully")
     
     def _run_strategy_loop(self):
         """Main strategy execution loop."""
