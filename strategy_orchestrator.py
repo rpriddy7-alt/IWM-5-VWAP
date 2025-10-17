@@ -20,7 +20,7 @@ from five_minute_confirmation import FiveMinuteConfirmation
 from position_sizing import PositionSizing
 from hard_invalidation import HardInvalidation
 from contract_selector import CorrectedMultiStrategyContractSelector
-from alerts_new import IWM5VWAPAlertClient
+from alerts_complete import IWM5VWAPCompleteAlertClient
 from polygon_client import PolygonWebSocketClient, PolygonRESTClient
 
 logger = setup_logger("StrategyOrchestrator")
@@ -40,7 +40,7 @@ class IWMStrategyOrchestrator:
         self.position_sizing = PositionSizing()
         self.hard_invalidation = HardInvalidation()
         self.contract_selector = CorrectedMultiStrategyContractSelector()
-        self.alerts = IWM5VWAPAlertClient()
+        self.alerts = IWM5VWAPCompleteAlertClient()
         
         # Data clients
         self.polygon_ws = PolygonWebSocketClient("stocks")
