@@ -14,6 +14,9 @@ from config import Config
 
 logger = setup_logger("PolygonClient")
 
+# Global connection lock to prevent multiple instances
+_connection_lock = threading.Lock()
+
 
 class PolygonWebSocketClient:
     """WebSocket client for Polygon real-time feeds."""
@@ -144,25 +147,32 @@ class PolygonWebSocketClient:
     
     def connect_with_retry(self, max_retries=3, delay=5):
         """Connect with retry logic to prevent rapid reconnection."""
-        # Add random delay to prevent multiple instances from connecting simultaneously
-        import random
-        initial_delay = random.uniform(1, 10)  # Random delay 1-10 seconds
-        logger.info(f"Waiting {initial_delay:.1f} seconds before connecting to prevent instance conflicts...")
-        time.sleep(initial_delay)
-        
-        for attempt in range(max_retries):
-            try:
-                self.connect()
+        # Use global lock to prevent multiple instances from connecting
+        with _connection_lock:
+            # Check if already connected
+            if self.connected and self.authenticated:
+                logger.info(f"Already connected and authenticated [{self.ws_type}]")
                 return
-            except Exception as e:
-                logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
-                if attempt < max_retries - 1:
-                    wait_time = delay * (2 ** attempt)  # Exponential backoff
-                    logger.info(f"Retrying in {wait_time} seconds...")
-                    time.sleep(wait_time)
-                else:
-                    logger.error(f"Failed to connect after {max_retries} attempts")
-                    raise
+            
+            # Add random delay to prevent multiple instances from connecting simultaneously
+            import random
+            initial_delay = random.uniform(5, 15)  # Longer delay 5-15 seconds
+            logger.info(f"Waiting {initial_delay:.1f} seconds before connecting to prevent instance conflicts...")
+            time.sleep(initial_delay)
+            
+            for attempt in range(max_retries):
+                try:
+                    self.connect()
+                    return
+                except Exception as e:
+                    logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
+                    if attempt < max_retries - 1:
+                        wait_time = delay * (2 ** attempt)  # Exponential backoff
+                        logger.info(f"Retrying in {wait_time} seconds...")
+                        time.sleep(wait_time)
+                    else:
+                        logger.error(f"Failed to connect after {max_retries} attempts")
+                        raise
     
     def subscribe_to_multiple_symbols(self, symbols: List[str]):
         """
