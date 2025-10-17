@@ -68,8 +68,8 @@ def main():
     import time
     import random
     
-    # Add random startup delay to prevent multiple instances from starting simultaneously
-    startup_delay = random.uniform(5, 15)
+    # Add short startup delay to prevent multiple instances from starting simultaneously
+    startup_delay = random.uniform(1, 3)
     logger.info(f"Instance startup delay: {startup_delay:.1f} seconds")
     time.sleep(startup_delay)
     

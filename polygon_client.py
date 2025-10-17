@@ -190,21 +190,11 @@ class PolygonWebSocketClient:
             logger.info(f"Already connected and authenticated [{self.ws_type}]")
             return
         
-        # Add very long random delay to prevent multiple instances from connecting simultaneously
+        # Add short random delay to prevent multiple instances from connecting simultaneously
         import random
-        initial_delay = random.uniform(60, 120)  # Very long delay 60-120 seconds
-        logger.info(f"Waiting {initial_delay:.1f} seconds before connecting to prevent instance conflicts...")
+        initial_delay = random.uniform(2, 5)  # Short delay 2-5 seconds
+        logger.info(f"Waiting {initial_delay:.1f} seconds before connecting...")
         time.sleep(initial_delay)
-        
-        # Check if we should skip connection (only one instance should connect)
-        import os
-        instance_id = os.getenv('RENDER_INSTANCE_ID', 'unknown')
-        logger.info(f"Instance ID: {instance_id}")
-        
-        # Only allow connection if this is the first instance or if no other instance is connected
-        if instance_id != 'unknown' and not instance_id.endswith('gdbvw'):
-            logger.warning(f"Skipping connection for instance {instance_id} - only primary instance should connect")
-            return
         
         # Use global lock to prevent multiple instances from connecting
         with _connection_lock:
@@ -220,8 +210,8 @@ class PolygonWebSocketClient:
                 except Exception as e:
                     logger.warning(f"Connection attempt {attempt + 1} failed: {e}")
                     if "max_connections" in str(e):
-                        logger.error("Connection limit exceeded - waiting 5 minutes before retry")
-                        time.sleep(300)  # Wait 5 minutes for connection limit
+                        logger.error("Connection limit exceeded - waiting 2 minutes before retry")
+                        time.sleep(120)  # Wait 2 minutes for connection limit
                     if attempt < max_retries - 1:
                         wait_time = delay * (2 ** attempt)  # Exponential backoff
                         logger.info(f"Retrying in {wait_time} seconds...")
