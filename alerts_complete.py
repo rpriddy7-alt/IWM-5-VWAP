@@ -29,8 +29,24 @@ class IWM5VWAPCompleteAlertClient:
         self.alert_number = 1
         self.active_positions = {}  # Track active positions by number
         
-        # Lifetime P&L tracking
+        # Lifetime P&L tracking (for strategy alerts only)
         self.lifetime_stats = {
+            'total_pnl': 0.0,
+            'total_trades': 0,
+            'wins': 0,
+            'losses': 0,
+            'calls_pnl': 0.0,
+            'calls_trades': 0,
+            'calls_wins': 0,
+            'calls_losses': 0,
+            'puts_pnl': 0.0,
+            'puts_trades': 0,
+            'puts_wins': 0,
+            'puts_losses': 0
+        }
+        
+        # Separate tracking for SELL MAX alerts (against strategy)
+        self.sell_max_stats = {
             'total_pnl': 0.0,
             'total_trades': 0,
             'wins': 0,
@@ -238,12 +254,13 @@ class IWM5VWAPCompleteAlertClient:
         
         return self._send_alert(title, message, priority=1, sound="pushover")
     
-    def send_soft_sell_alert(self, position_data: Dict, max_profit_data: Dict) -> bool:
+    def send_sell_max_alert(self, position_data: Dict, max_profit_data: Dict) -> bool:
         """
-        Send soft sell alert when max profit is reached but trend is still favorable.
+        Send SELL MAX alert when max profit is reached but trend is still favorable.
+        This is a personal risk alert that goes against the bot's strategy.
         """
         alert_num = max_profit_data.get('alert_number', self.alert_number - 1)
-        logger.info(f"🔔 SOFT SELL ALERT #{alert_num}")
+        logger.info(f"💰 SELL MAX ALERT #{alert_num}")
         
         # Extract data
         contract_name = position_data.get('contract_name', 'N/A')
@@ -263,8 +280,15 @@ class IWM5VWAPCompleteAlertClient:
         else:
             trend_strength = "WEAK"
         
+        # Get SELL MAX stats (separate from strategy stats)
+        sell_max_pnl = self.sell_max_stats['total_pnl']
+        sell_max_trades = self.sell_max_stats['total_trades']
+        sell_max_wins = self.sell_max_stats['wins']
+        sell_max_losses = self.sell_max_stats['losses']
+        sell_max_win_rate = (sell_max_wins / sell_max_trades * 100) if sell_max_trades > 0 else 0
+        
         # Create title
-        title = f"🔔 SOFT SELL #{alert_num}"
+        title = f"💰 SELL MAX #{alert_num}"
         
         # Create message
         message_lines = [
@@ -275,7 +299,9 @@ class IWM5VWAPCompleteAlertClient:
             f"Trend Strength: {trend_strength}",
             f"Risk of Holding: {risk_percentage:.1f}%",
             "",
-            "⚠️ Consider selling now - max profit reached",
+            f"📊 SELL MAX TRACKING: ${sell_max_pnl:+.2f} | {sell_max_wins}W/{sell_max_losses}L ({sell_max_win_rate:.1f}%)",
+            "",
+            "⚠️ PERSONAL RISK ALERT - Against bot strategy",
             f"Alert #{alert_num} | {datetime.now().strftime('%H:%M ET')}"
         ]
         
