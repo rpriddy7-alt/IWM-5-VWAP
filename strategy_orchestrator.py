@@ -160,6 +160,9 @@ class IWMStrategyOrchestrator:
         is_past_three_am = (current_time.hour >= 3 and 
                            not hasattr(self, 'overnight_processed_today'))
         
+        # Debug logging
+        logger.info(f"Overnight analysis check: current_time={current_time}, is_three_am={is_three_am}, is_past_three_am={is_past_three_am}, has_processed={hasattr(self, 'overnight_processed_today')}")
+        
         return is_three_am or is_past_three_am
     
     def _process_overnight_analysis(self):
