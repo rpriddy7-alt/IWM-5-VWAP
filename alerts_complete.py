@@ -30,7 +30,7 @@ class IWM5VWAPCompleteAlertClient:
         self.alert_number = 1
         self.active_positions = {}  # Track active positions by number
         
-        # Lifetime P&L tracking (for strategy alerts only)
+        # Lifetime P&L tracking (for strategy alerts only - ROBINHOOD ACCOUNT)
         self.lifetime_stats = {
             'total_pnl': 0.0,
             'total_trades': 0,
@@ -45,6 +45,10 @@ class IWM5VWAPCompleteAlertClient:
             'puts_wins': 0,
             'puts_losses': 0
         }
+        
+        # Robinhood account balance (SEPARATE FROM TRADIER)
+        self.robinhood_balance = 7100.0  # Your Robinhood settled cash
+        self.available_robinhood_balance = 7100.0  # Current available for alerts
         
         # Separate tracking for SELL MAX alerts (against strategy)
         self.sell_max_stats = {
@@ -285,6 +289,35 @@ class IWM5VWAPCompleteAlertClient:
             logger.error(f"Silent sell execution failed: {e}")
         
         return self._send_alert(title, message, priority=1, sound="pushover")
+    
+    def check_robinhood_balance(self) -> Dict:
+        """
+        Check Robinhood account balance for alerts (SEPARATE FROM TRADIER).
+        
+        Returns:
+            Dict with balance information
+        """
+        return {
+            'robinhood_balance': self.robinhood_balance,
+            'available_balance': self.available_robinhood_balance,
+            'account_type': 'Robinhood',
+            'separate_from_tradier': True
+        }
+    
+    def update_robinhood_balance(self, trade_amount: float):
+        """
+        Update Robinhood balance after trade (SEPARATE FROM TRADIER).
+        
+        Args:
+            trade_amount: Amount used in trade
+        """
+        self.available_robinhood_balance -= trade_amount
+        logger.info(f"Robinhood balance updated: ${self.available_robinhood_balance:.2f} remaining (SEPARATE FROM TRADIER)")
+    
+    def reset_daily_robinhood_balance(self):
+        """Reset Robinhood balance for new trading day (SEPARATE FROM TRADIER)."""
+        self.available_robinhood_balance = self.robinhood_balance
+        logger.info(f"Robinhood balance reset: ${self.robinhood_balance:.2f} available (SEPARATE FROM TRADIER)")
     
     def send_sell_max_alert(self, position_data: Dict, max_profit_data: Dict) -> bool:
         """

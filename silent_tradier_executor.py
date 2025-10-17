@@ -25,10 +25,10 @@ class SilentTradierExecutor:
         # Initialize Tradier client
         self.tradier = TradierTradingClient()
         
-        # Silent execution state
+        # Silent execution state (COMPLETELY SEPARATE FROM ALERTS)
         self.silent_enabled = Config.TRADIER_ENABLED
-        self.daily_balance = 1000.0  # Starting balance
-        self.available_balance = 1000.0  # Current available balance
+        self.daily_balance = 1000.0  # Tradier starting balance (SEPARATE)
+        self.available_balance = 1000.0  # Tradier available balance (SEPARATE)
         self.daily_trades = 0
         self.max_daily_trades = 3  # Maximum trades per day
         
@@ -41,7 +41,7 @@ class SilentTradierExecutor:
         self.last_balance_check = None
         
         if self.silent_enabled:
-            logger.info("Silent Tradier executor enabled - running quietly in background")
+            logger.info("Silent Tradier executor enabled - running quietly in background (SEPARATE FROM ALERTS)")
             self._check_daily_balance()
         else:
             logger.info("Silent Tradier executor disabled - alerts only mode")
@@ -50,14 +50,14 @@ class SilentTradierExecutor:
         """Check available balance at start of each day."""
         try:
             if self.tradier.is_configured:
-                # Get actual account balance
+                # Get actual Tradier account balance (SEPARATE FROM ALERTS)
                 balance = self.tradier.get_cash_balance()
                 if balance > 0:
                     self.available_balance = balance
                     self.daily_balance = balance
-                    logger.info(f"Daily balance check: ${balance:.2f} available")
+                    logger.info(f"Tradier balance check: ${balance:.2f} available (SEPARATE FROM ALERTS)")
                 else:
-                    logger.warning("No available balance - trading disabled")
+                    logger.warning("No Tradier balance - silent trading disabled (ALERTS UNAFFECTED)")
                     self.silent_enabled = False
             else:
                 logger.warning("Tradier not configured - using simulation mode")

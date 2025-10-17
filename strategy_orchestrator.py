@@ -194,13 +194,14 @@ class IWMStrategyOrchestrator:
                 self.alerts.send_bias_alert(self.current_bias, analysis_result)
     
     def _check_daily_balance(self):
-        """Check daily balance for silent trading."""
+        """Check daily balance for silent trading (SEPARATE FROM ALERTS)."""
         try:
             from silent_tradier_executor import silent_executor
             silent_executor._check_daily_balance()
-            logger.info("Daily balance check completed")
+            logger.info("Tradier balance check completed (SEPARATE FROM ALERTS)")
         except Exception as e:
-            logger.error(f"Daily balance check failed: {e}")
+            logger.error(f"Tradier balance check failed: {e}")
+            # Alerts continue regardless of Tradier issues
     
     def _is_in_entry_window(self, current_time: datetime) -> bool:
         """Check if we're in an entry window."""
