@@ -27,24 +27,12 @@ class SilentTradierExecutor:
         
         # Silent execution state (COMPLETELY SEPARATE FROM ALERTS)
         self.silent_enabled = Config.TRADIER_ENABLED
-        self.daily_balance = 1000.0  # Tradier starting balance (SEPARATE)
-        self.available_balance = 1000.0  # Tradier available balance (SEPARATE)
         self.daily_trades = 0
         self.max_daily_trades = 3  # Maximum trades per day
         
-        # Position tracking
+        # Position tracking (for order execution only)
         self.active_positions: Dict[str, Dict] = {}
         self.daily_pnl = 0.0
-        
-        # Tradier trading fees (per trade)
-        self.tradier_commission = 0.0  # Tradier commission (varies by plan)
-        self.tradier_sec_fee = 0.00051  # SEC fee (per $1000 of sales)
-        self.tradier_finra_fee = 0.000119  # FINRA fee (per share sold)
-        self.tradier_regulatory_fee = 0.000119  # Regulatory fee (per share)
-        
-        # Balance management
-        self.balance_check_time = None
-        self.last_balance_check = None
         
         if self.silent_enabled:
             logger.info("Silent Tradier executor enabled - running quietly in background (SEPARATE FROM ALERTS)")
@@ -53,24 +41,12 @@ class SilentTradierExecutor:
             logger.info("Silent Tradier executor disabled - alerts only mode")
     
     def _check_daily_balance(self):
-        """Check available balance at start of each day."""
-        try:
-            if self.tradier.is_configured:
-                # Get actual Tradier account balance (SEPARATE FROM ALERTS)
-                balance = self.tradier.get_cash_balance()
-                if balance > 0:
-                    self.available_balance = balance
-                    self.daily_balance = balance
-                    logger.info(f"Tradier balance check: ${balance:.2f} available (SEPARATE FROM ALERTS)")
-                else:
-                    logger.warning("No Tradier balance - silent trading disabled (ALERTS UNAFFECTED)")
-                    self.silent_enabled = False
-            else:
-                logger.warning("Tradier not configured - using simulation mode")
-                self.available_balance = 1000.0
-        except Exception as e:
-            logger.error(f"Tradier balance check failed: {e}")
-            logger.info("Silent trading disabled due to Tradier error - ALERTS CONTINUE NORMALLY")
+        """Check if Tradier is configured for order execution only."""
+        if self.tradier.is_configured:
+            logger.info("Tradier configured for order execution - ready for auto trading")
+            self.silent_enabled = True
+        else:
+            logger.warning("Tradier not configured - auto trading disabled")
             self.silent_enabled = False
     
     def execute_silent_buy(self, alert_data: Dict) -> bool:
@@ -97,40 +73,27 @@ class SilentTradierExecutor:
                 logger.error("No valid price for silent buy")
                 return False
             
-            # Check if we have available balance
-            if self.available_balance < 100:  # Minimum trade size
-                logger.warning("Insufficient balance for silent buy")
-                return False
-            
             # Check daily trade limit
             if self.daily_trades >= self.max_daily_trades:
                 logger.warning("Daily trade limit reached")
                 return False
             
-            # Calculate position size based on available balance
-            # Use full balance for high confidence, split for lower confidence
+            # Calculate position size based on confidence
+            # Use fixed amounts for simplicity
             if confidence >= 0.8:
-                # High confidence - use full available balance
-                trade_amount = self.available_balance
+                # High confidence - use $1000
+                trade_amount = 1000.0
             elif confidence >= 0.6:
-                # Medium confidence - use 70% of available balance
-                trade_amount = self.available_balance * 0.7
+                # Medium confidence - use $700
+                trade_amount = 700.0
             else:
-                # Lower confidence - use 50% of available balance
-                trade_amount = self.available_balance * 0.5
+                # Lower confidence - use $500
+                trade_amount = 500.0
             
             # Calculate shares
             shares = int(trade_amount / current_price)
             if shares < 1:
                 logger.warning("Position size too small for silent buy")
-                return False
-            
-            # Calculate fees for this trade
-            total_fees = self._calculate_tradier_fees(trade_amount, shares, is_sell=False)
-            
-            # Check if we have enough for trade + fees
-            if self.available_balance < (trade_amount + total_fees):
-                logger.warning(f"Insufficient Tradier balance for trade + fees: ${self.available_balance:.2f} < ${trade_amount + total_fees:.2f}")
                 return False
             
             # Execute silent buy order
@@ -154,12 +117,11 @@ class SilentTradierExecutor:
                     'confidence': confidence
                 }
                 
-                # Update available balance with fees
-                self.available_balance -= (trade_amount + total_fees)
+                # Track the trade
                 self.daily_trades += 1
                 
                 logger.info(f"Silent buy executed: {shares} shares of {symbol} at ${current_price:.2f}")
-                logger.info(f"Trade amount: ${trade_amount:.2f}, Fees: ${total_fees:.4f}, Remaining balance: ${self.available_balance:.2f}")
+                logger.info(f"Trade amount: ${trade_amount:.2f}, Daily trades: {self.daily_trades}")
                 
                 return True
             else:
@@ -211,19 +173,14 @@ class SilentTradierExecutor:
                 pnl = (current_price - entry_price) * qty
                 self.daily_pnl += pnl
                 
-                # Calculate fees for sell
+                # Calculate trade amount
                 trade_amount = current_price * qty
-                sell_fees = self._calculate_tradier_fees(trade_amount, qty, is_sell=True)
-                
-                # Update available balance (proceeds minus fees)
-                self.available_balance += (trade_amount - sell_fees)
                 
                 # Remove position
                 del self.active_positions[symbol]
                 
                 logger.info(f"Silent sell executed: {qty} shares of {symbol} at ${current_price:.2f}")
-                logger.info(f"P&L: ${pnl:.2f}, Fees: ${sell_fees:.4f}, Total P&L: ${self.daily_pnl:.2f}")
-                logger.info(f"Updated balance: ${self.available_balance:.2f}")
+                logger.info(f"P&L: ${pnl:.2f}, Total P&L: ${self.daily_pnl:.2f}")
                 
                 return True
             else:
@@ -289,39 +246,6 @@ class SilentTradierExecutor:
         
         return exit_positions
     
-    def _calculate_tradier_fees(self, trade_amount: float, shares: int, is_sell: bool) -> float:
-        """
-        Calculate Tradier trading fees.
-        
-        Args:
-            trade_amount: Dollar amount of trade
-            shares: Number of shares
-            is_sell: Whether this is a sell trade
-            
-        Returns:
-            Total fees for the trade
-        """
-        total_fees = 0.0
-        
-        # Commission (if applicable)
-        total_fees += self.tradier_commission
-        
-        # SEC fee (on sales only)
-        if is_sell:
-            sec_fee = trade_amount * self.tradier_sec_fee
-            total_fees += sec_fee
-        
-        # FINRA fee (on sales only, per share)
-        if is_sell and shares > 0:
-            finra_fee = shares * self.tradier_finra_fee
-            total_fees += finra_fee
-        
-        # Regulatory fee (per share)
-        if shares > 0:
-            regulatory_fee = shares * self.tradier_regulatory_fee
-            total_fees += regulatory_fee
-        
-        return total_fees
     
     def _should_exit_for_time(self) -> bool:
         """Check if we should exit positions due to time."""
