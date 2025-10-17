@@ -23389,3 +23389,15 @@ IWM 0DTE Momentum System Configuration:
 2025-10-16 14:55:41 | INFO     | Main | _chain_update_loop:238 | Chain snapshot: 160 contracts
 2025-10-16 14:55:41 | INFO     | ContractSelector | filter_and_rank_contracts:35 | Selecting flow monitoring contracts from 160 in chain
 2025-10-16 14:55:41 | INFO     | ContractSelector | filter_and_rank_contracts:142 | ✓ FLOW MONITORING: Selected 3 contracts by volume: O:IWM251016C00245000(245, vol=16354), O:IWM251016C00243000(243, vol=2099), O:IWM251016C00244000(244, vol=3418)
+2025-10-16 20:00:34 | INFO     | ConfigDebug | validate:107 | Environment check - RENDER: Not set
+2025-10-16 20:00:34 | INFO     | ConfigDebug | validate:108 | POLYGON_API_KEY: MISSING
+2025-10-16 20:00:34 | INFO     | ConfigDebug | validate:109 | PUSHOVER_TOKEN: SET
+2025-10-16 20:00:34 | INFO     | ConfigDebug | validate:110 | PUSHOVER_USER_KEY: SET
+2025-10-16 20:00:34 | INFO     | ConfigDebug | validate:111 | TRADIER_ENABLED: False
+2025-10-16 20:00:34 | INFO     | ConfigDebug | validate:112 | TRADIER_TOKEN: MISSING
+2025-10-16 20:13:52 | INFO     | ConfigDebug | validate:107 | Environment check - RENDER: Not set
+2025-10-16 20:13:52 | INFO     | ConfigDebug | validate:108 | POLYGON_API_KEY: MISSING
+2025-10-16 20:13:52 | INFO     | ConfigDebug | validate:109 | PUSHOVER_TOKEN: SET
+2025-10-16 20:13:52 | INFO     | ConfigDebug | validate:110 | PUSHOVER_USER_KEY: SET
+2025-10-16 20:13:52 | INFO     | ConfigDebug | validate:111 | TRADIER_ENABLED: False
+2025-10-16 20:13:52 | INFO     | ConfigDebug | validate:112 | TRADIER_TOKEN: MISSING
